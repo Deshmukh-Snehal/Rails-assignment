@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Player name:</strong>
+  <%= @player.player_name %>
+</p>
+
+<p>
+  <strong>Player city:</strong>
+  <%= @player.player_city %>
+</p>
+
+<p>
+  <strong>Player state:</strong>
+  <%= @player.player_state %>
+</p>
+
+<p>
+  <strong>Player country:</strong>
+  <%= @player.player_country %>
+</p>
+
+<p>
+  <strong>Player mobileno:</strong>
+  <%= @player.player_mobileno %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @player.gender %>
+</p>
+
+<%= link_to 'Edit', edit_player_path(@player),class:"btn btn-primary" %>
+<%= link_to 'Back', players_path,class:"btn btn-dark" %>

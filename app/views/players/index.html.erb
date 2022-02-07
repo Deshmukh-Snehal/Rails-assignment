@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Players</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Player name</th>
+      <th>Player city</th>
+      <th>Player state</th>
+      <th>Player country</th>
+      <th>Player mobileno</th>
+      <th>Gender</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @players.each do |player| %>
+      <tr>
+        <td><%= player.player_name %></td>
+        <td><%= player.player_city %></td>
+        <td><%= player.player_state %></td>
+        <td><%= player.player_country %></td>
+        <td><%= player.player_mobileno %></td>
+        <td><%= player.gender %></td>
+        <td><%= link_to 'Show', player %></td>
+        <td><%= link_to 'Edit', edit_player_path(player) %></td>
+        <td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Player', new_player_path,class:"btn btn-primary" %>

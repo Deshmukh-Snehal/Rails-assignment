@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Awards:</strong>
+  <%= @achievement.awards %>
+</p>
+
+<p>
+  <strong>Medals:</strong>
+  <%= @achievement.medals %>
+</p>
+
+<%= link_to 'Edit', edit_achievement_path(@achievement) %> |
+<%= link_to 'Back', achievements_path %>

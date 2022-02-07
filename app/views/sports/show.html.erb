@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sport name:</strong>
+  <%= @sport.sport_name %>
+</p>
+
+<p>
+  <strong>Sport equipments:</strong>
+  <%= @sport.sport_equipments %>
+</p>
+
+<p>
+  <strong>Sport player:</strong>
+  <%= @sport.sport_player %>
+</p>
+
+<%= link_to 'Edit', edit_sport_path(@sport) %> |
+<%= link_to 'Back', sports_path %>
