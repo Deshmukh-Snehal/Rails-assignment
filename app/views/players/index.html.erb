@@ -2,9 +2,10 @@
 
 <h1>Players</h1>
 
-<table>
-  <thead>
+<table class="table table-striped">
+  <thead class="table-dark">
     <tr>
+      <th>Image</th>
       <th>Player name</th>
       <th>Player city</th>
       <th>Player state</th>
@@ -19,6 +20,7 @@
   <tbody>
     <% @players.each do |player| %>
       <tr>
+        <td><img src="<%= player.image %>" class= "p-show"></td>
         <td><%= player.player_name %></td>
         <td><%= player.player_city %></td>
         <td><%= player.player_state %></td>

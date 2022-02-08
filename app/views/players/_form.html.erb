@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field form-group">
+    <%= form.label :image %>
+    <%= form.file_field :image, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
     <%= form.label :player_name %>
     <%= form.text_field :player_name, class:"form-control" %>
   </div>
