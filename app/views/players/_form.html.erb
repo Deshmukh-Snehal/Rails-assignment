@@ -36,6 +36,11 @@
     <%= form.text_field :player_mobileno, class:"form-control" %>
   </div>
 
+  <div class="field">
+    <%= form.label :sport %>
+    <%= form.collection_select(:sport_id, Sport.all, :id, :sport_name, { :prompt => 'Select a Sport', :selected => @player.sport_id }, { class: 'form-control' }) %>
+  </div>
+
   <div class="field form-group">
     <%= form.label :Gender %>
     male<%= form.radio_button :gender, ['male']%>

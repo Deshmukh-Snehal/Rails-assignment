@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_07_132531) do
+ActiveRecord::Schema.define(version: 2022_02_08_065948) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,9 @@ ActiveRecord::Schema.define(version: 2022_02_07_132531) do
     t.string "medals"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "player"
+    t.integer "player_id"
+    t.index ["player_id"], name: "index_achievements_on_player_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -40,6 +43,9 @@ ActiveRecord::Schema.define(version: 2022_02_07_132531) do
     t.string "gender"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "sport_id"
+    t.string "sport"
+    t.index ["sport_id"], name: "index_players_on_sport_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -48,6 +54,12 @@ ActiveRecord::Schema.define(version: 2022_02_07_132531) do
     t.string "tags"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "player"
+    t.integer "player_id"
+    t.integer "sport_id"
+    t.string "sport"
+    t.index ["player_id"], name: "index_posts_on_player_id"
+    t.index ["sport_id"], name: "index_posts_on_sport_id"
   end
 
   create_table "sports", force: :cascade do |t|
