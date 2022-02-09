@@ -3,5 +3,6 @@ class Post < ApplicationRecord
     has_many :comments
     belongs_to :player
     belongs_to :sport
+    has_many :hashtags, as: :tagable 
     validates :title, :image, :description, presence: true
 end

@@ -25,5 +25,7 @@
   <%= @post.description %>
 </p>
 
+<%= render partial: "hashtags/form", locals: {tagable: @post} %>
+
 <%= link_to 'Edit', edit_post_path(@post), class:"btn btn-primary" %>
 <%= link_to 'Back', posts_path, class:"btn btn-dark" %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_09_090205) do
+ActiveRecord::Schema.define(version: 2022_02_09_100644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,15 @@ ActiveRecord::Schema.define(version: 2022_02_09_090205) do
     t.integer "post_id"
     t.string "post"
     t.index ["post_id"], name: "index_comments_on_post_id"
+  end
+
+  create_table "hashtags", force: :cascade do |t|
+    t.string "tagable_type"
+    t.bigint "tagable_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tagable_type", "tagable_id"], name: "index_hashtags_on_tagable_type_and_tagable_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -68,6 +77,33 @@ ActiveRecord::Schema.define(version: 2022_02_09_090205) do
     t.string "sport_name"
     t.string "sport_equipments"
     t.bigint "sport_player"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tag_infos", force: :cascade do |t|
+    t.string "title"
+    t.string "player"
+    t.string "post"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "player_id"
+    t.integer "post_id"
+    t.index ["player_id"], name: "index_tag_infos_on_player_id"
+    t.index ["post_id"], name: "index_tag_infos_on_post_id"
+  end
+
+  create_table "tagnames", force: :cascade do |t|
+    t.string "tagable_type"
+    t.bigint "tagable_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tagable_type", "tagable_id"], name: "index_tagnames_on_tagable_type_and_tagable_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
