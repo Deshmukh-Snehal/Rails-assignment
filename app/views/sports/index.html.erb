@@ -2,16 +2,17 @@
 
 <h1>Sports</h1>
 
-<table class="table table-striped">
+<table class="table table-striped" id="dataid">
   <thead class="table-dark">
     <tr>
       <th>Sport name</th>
       <th>Sport equipments</th>
       <th>Sport player</th>
-      <th colspan="3"></th>
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Destroy</th>
     </tr>
   </thead>
-
   <tbody>
     <% @sports.each do |sport| %>
       <tr>
@@ -19,13 +20,20 @@
         <td><%= sport.sport_equipments %></td>
         <td><%= sport.sport_player %></td>
         <td><%= link_to 'Show', sport %></td>
+        <%if current_user && current_user.admin?%>
         <td><%= link_to 'Edit', edit_sport_path(sport) %></td>
         <td><%= link_to 'Destroy', sport, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
+<script>
+$(document).ready(function() {
+        var sTable = $('#dataid').DataTable({})
+    });
+</script>
 
 <br>
 
-<%= link_to 'New Sport', new_sport_path, class:"btn btn-primary" %>
+<%= link_to 'New Player', new_sport_path,class:"btn btn-primary" %>

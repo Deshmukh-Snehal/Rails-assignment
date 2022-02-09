@@ -51,12 +51,14 @@
     <%= form.collection_select(:sport_id, Sport.all, :id, :sport_name, { :prompt => 'Select a Sport', :selected => @player.sport_id }, { class: 'form-control' }) %>
   </div>
 
-  <div class="field form-group">
+  <div class="field">
     <%= form.label :Gender %>
     male<%= form.radio_button :gender, ['male']%>
     female<%= form.radio_button :gender, ['female']%>
   </div>
 
+  <br/>
+  
   <div class="actions">
     <%= form.submit class:"btn btn-primary"%>
   </div>

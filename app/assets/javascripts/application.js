@@ -13,7 +13,10 @@
 //= require rails-ujs
 //= require jquery3
 //= require jquery_ujs
+//= require bootstrap
 //= require activestorage
 //= require turbolinks
+//= require datatables
+//= require data
 //= require header
 //= require_tree .
