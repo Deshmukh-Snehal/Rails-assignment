@@ -11,12 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
+    <%= form.label :image %>
+    <%= form.file_field :image, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class:"form-control" %>
   </div>
   
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :player %>
     <%= form.collection_select(:player_id, Player.all, :id, :player_name, { :prompt => 'Select a Player', :selected => @post.player_id }, { class: 'form-control' }) %>
   </div>
@@ -26,17 +31,12 @@
     <%= form.collection_select(:sport_id, Sport.all, :id, :sport_name, { :prompt => 'Select a Sport', :selected => @post.sport_id }, { class: 'form-control' }) %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, class:"form-control" %>
   </div>
-  
-  <div class="field">
-    <%= form.label :tags %>
-    <%= form.text_field :tags %>
-  </div>
-
+  <br/>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-primary"%>
   </div>
 <% end %>

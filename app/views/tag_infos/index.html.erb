@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tag Infos</h1>
+
+<table class="table table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th>Title</th>
+      <th>Player</th>
+      <th>Post</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tag_infos.each do |tag_info| %>
+      <tr>
+        <td><%= tag_info.title %></td>
+        <td><%= tag_info.player.player_name %></td>
+        <td><%= tag_info.post.title %></td>
+        <td><%= link_to 'Show', tag_info %></td>
+        <td><%= link_to 'Edit', edit_tag_info_path(tag_info) %></td>
+        <td><%= link_to 'Destroy', tag_info, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tag Info', new_tag_info_path, class:"btn btn-primary" %>

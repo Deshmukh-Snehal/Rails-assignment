@@ -22,6 +22,11 @@
   </div>
 
   <div class="field form-group">
+    <%= form.label :email %>
+    <%= form.text_field :email, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
     <%= form.label :player_city %>
     <%= form.text_field :player_city, class:"form-control" %>
   </div>
@@ -53,6 +58,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-primary"%>
   </div>
 <% end %>

@@ -11,22 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :sport_name %>
-    <%= form.text_field :sport_name %>
+    <%= form.text_field :sport_name, class:"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :sport_equipments %>
-    <%= form.text_field :sport_equipments %>
+    <%= form.text_field :sport_equipments, class:"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :sport_player %>
-    <%= form.text_field :sport_player %>
+    <%= form.text_field :sport_player, class:"form-control" %>
   </div>
-
+  <br/>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-primary"%>
   </div>
 <% end %>

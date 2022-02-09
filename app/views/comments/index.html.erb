@@ -2,8 +2,8 @@
 
 <h1>Comments</h1>
 
-<table>
-  <thead>
+<table class="table table-striped">
+  <thead class="table-dark">
     <tr>
       <th>Comment</th>
       <th>Post</th>
@@ -24,6 +24,6 @@
   </tbody>
 </table>
 
-<br>
+<br/>
 
-<%= link_to 'New Comment', new_comment_path %>
+<%= link_to 'New Comment', new_comment_path, class:"btn btn-primary" %>
