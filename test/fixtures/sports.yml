@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sport_name: MyString
+  sport_equipments: MyString
+  sport_player: 
+
+two:
+  sport_name: MyString
+  sport_equipments: MyString
+  sport_player: 

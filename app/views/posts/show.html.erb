@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Image:</strong>
+  <img src="<%= @post.image %>" class= "p-show">
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Player Name:</strong>
+  <%= @post.player.player_name %>
+</p>
+
+<p>
+  <strong>Sport Name:</strong>
+  <%= @post.sport.sport_name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @post.description %>
+</p>
+
+<%= render partial: "hashtags/form", locals: {tagable: @post} %>
+
+<%= link_to 'Edit', edit_post_path(@post), class:"btn btn-primary" %>
+<%= link_to 'Back', posts_path, class:"btn btn-dark" %>

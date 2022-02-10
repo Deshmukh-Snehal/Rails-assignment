@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Achievements</h1>
+
+<table class="table table-striped" id='dataid'>
+  <thead class="table-dark">
+    <tr>
+      <th>Awards</th>
+      <th>Player Name</th>
+      <th>Medals</th>
+      <%if current_user && current_user.player?%>
+        <th>Status</th>
+      <%end%> 
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Destroy</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @achievements.each do |achievement| %>
+      <tr>
+        <td><%= achievement.awards %></td>
+        <td><%= achievement.player.player_name %></td>
+        <td><%= achievement.medals %></td>
+        <%if current_user && current_user.player?%>
+          <td><%= achievement.status %></td>
+        <% end %>  
+        <td><%= link_to 'Show', achievement %></td>
+        <td><%= link_to 'Edit', edit_achievement_path(achievement) %></td>
+        <td><%= link_to 'Destroy', achievement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<script>
+$(document).ready(function() {
+        var aTable = $('#dataid').DataTable({})
+    });
+</script>
+<br>
+<%if current_user && current_user.player?%>
+<%= link_to 'New Achievement', new_achievement_path, class:"btn btn-primary" %>
+<% end %>
