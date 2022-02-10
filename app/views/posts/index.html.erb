@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Posts</h1>
+
+<table class="table table-striped" id='dataid'>
+  <thead class="table-dark">
+    <tr>
+      <th>Image</th>
+      <th>Title</th>
+      <th>Player name</th>
+      <th>Sport name</th>
+      <th>Description</th>
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Destroy</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><img src="<%= post.image %>" class= "p-show"></td>
+        <td><%= post.title %></td>
+        <td><%= post.player.player_name %></td>
+        <td><%= post.sport.sport_name %></td>
+        <td><%= post.description %></td>
+        <td><%= link_to 'Show', post %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<script>
+  $(document).ready(function() {
+      var pTable = $('#dataid').DataTable({})
+    });
+</script>
+<br/>
+<%= link_to 'New Post', new_post_path, class:"btn btn-primary" %>
