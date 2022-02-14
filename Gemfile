@@ -66,3 +66,5 @@ gem 'carrierwave', '~> 2.2', '>= 2.2.2'
 gem 'jquery-rails'
 gem 'jquery-validation-rails'
 gem "jquery-datatables", "~> 1.10"
+gem 'jquery-turbolinks'
+gem "select2-rails"

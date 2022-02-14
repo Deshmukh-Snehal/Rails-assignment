@@ -1,7 +1,7 @@
 <%= form_with(model: [tagable, Hashtag.new], local: true) do |form|%>
-<div class="field">
-<%= form.label :content %><br/>
-<%= form.text_area :content %>
-</div>
-<%= form.submit class: "btn btn-primary"%>
+  <div class="field">
+    <%= form.label :content %><br/>
+    <%= form.text_area :content %>
+  </div>
+  <%= form.submit class: "btn btn-primary"%>
 <% end %>

@@ -1,4 +1,6 @@
 class Achievement < ApplicationRecord
-    belongs_to :player
-    validates :awards, :medals, presence: true
+  #Association
+  belongs_to :user
+  #Backend Validations
+  validates :awards, :medals, presence: true
 end

@@ -1,4 +1,5 @@
 class SportsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show ]
   before_action :set_sport, only: %i[ show edit update destroy ]
 
   # GET /sports or /sports.json
@@ -65,6 +66,6 @@ class SportsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def sport_params
-      params.require(:sport).permit(:sport_name, :sport_equipments, :sport_player)
+      params.require(:sport).permit(:sport_name, :sport_equipments, :sport_id, :user_id)
     end
 end

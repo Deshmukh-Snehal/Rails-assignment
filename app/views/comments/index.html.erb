@@ -2,7 +2,7 @@
 
 <h1>Comments</h1>
 
-<table class="table table-striped" id='dataid'>
+<table class="table table-striped" id="commentTable">
   <thead class="table-dark">
     <tr>
       <th>Comment</th>
@@ -25,12 +25,6 @@
     <% end %>
   </tbody>
 </table>
-
-<script>
-$(document).ready(function() {
-        var cTable = $('#dataid').DataTable({})
-    });
-</script>
 <br/>
 
 <%= link_to 'New Comment', new_comment_path, class:"btn btn-primary" %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @annocement.title %>
+</p>
+<p>
+  <strong>Sport:</strong>
+  <%= @annocement.sport.sport_name %>
+</p>
+<% if ((@annocement.user == current_user) || (current_user.admin?)) %>
+  <%= link_to 'Edit', edit_annocement_path(@annocement) %>
+<% end %>
+<%= link_to 'Back', annocements_path %>

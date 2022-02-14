@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @playerdetail.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @playerdetail.email %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @playerdetail.state %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @playerdetail.country %>
+</p>
+
+<p>
+  <strong>Mobile no:</strong>
+  <%= @playerdetail.mobile_no %>
+</p>
+
+<p>
+  <strong>Sport:</strong>
+  <%= @playerdetail.sport.sport_name %>
+</p>
+
+
+<p>
+  <strong>Gender:</strong>
+  <%= @playerdetail.gender %>
+</p>
+
+<%= link_to 'Edit', edit_playerdetail_path(@playerdetail) %> |
+<%= link_to 'Back', playerdetails_path %>

@@ -14,11 +14,11 @@
 //= require jquery3
 //= require jquery_ujs
 //= require jquery.validate
+//= require select2-full
 //= require bootstrap
-//= require activestorage
-//= require turbolinks
 //= require datatables
-//= require sport
-//= require data
-//= require header
+//= require jquery.turbolinks
+//= require assigndatatable
+//= require frontvalidation
+//= require activestorage
 //= require_tree .

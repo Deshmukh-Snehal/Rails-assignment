@@ -1,6 +1,7 @@
 class AchievementsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show ]
   before_action :set_achievement, only: %i[ show edit update destroy ]
-
+  # before_action :correct_user, only: [:edit, :update, :destroy] 
   # GET /achievements or /achievements.json
   def index
     @achievements = Achievement.all
@@ -13,6 +14,7 @@ class AchievementsController < ApplicationController
   # GET /achievements/new
   def new
     @achievement = Achievement.new
+    # @achievement = current_user.achievements.build
   end
 
   # GET /achievements/1/edit
@@ -22,6 +24,7 @@ class AchievementsController < ApplicationController
   # POST /achievements or /achievements.json
   def create
     @achievement = Achievement.new(achievement_params)
+    # @achievement = current_user.achievements.build(achievement_params)
 
     respond_to do |format|
       if @achievement.save
@@ -57,6 +60,11 @@ class AchievementsController < ApplicationController
     end
   end
 
+  # def correct_user
+  #   @achievement = current_user.achievements.find_by(id: params[:id])
+  #   redirect_to achievements_path, notice: "Unauthorized to edit this player" if @achievement.nil?
+  # end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_achievement
@@ -65,6 +73,6 @@ class AchievementsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def achievement_params
-      params.require(:achievement).permit(:awards, :medals, :player_id, :status)
+      params.require(:achievement).permit(:awards, :medals, :status, :user_id)
     end
 end

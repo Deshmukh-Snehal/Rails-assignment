@@ -1,4 +1,4 @@
-<%= form_with(model: sport, local: true) do |form| %>
+<%= form_with(model: sport,:html => {id: "playerValidate"}, local: true) do |form| %>
   <% if sport.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(sport.errors.count, "error") %> prohibited this sport from being saved:</h2>
@@ -20,12 +20,13 @@
     <%= form.label :sport_equipments %>
     <%= form.text_field :sport_equipments, class:"form-control" %>
   </div>
-
+  
   <div class="field form-group">
-    <%= form.label :sport_player %>
-    <%= form.text_field :sport_player, class:"form-control" %>
+    <%= form.number_field :user_id,id: :sport_user_id, class:"form-control", value: current_user.id,type: :hidden %>
   </div>
+   
   <br/>
+
   <div class="actions">
     <%= form.submit class:"btn btn-primary"%>
   </div>

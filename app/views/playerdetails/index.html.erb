@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Playerdetails</h1>
+
+<table class="table table-striped" id="playerTable">
+  <thead class="table-dark">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>State</th>
+      <th>Country</th>
+      <th>Mobile no</th>
+      <th>Sport</th>
+      <th>Gender</th>
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Destroy</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @playerdetails.each do |playerdetail| %>
+      <tr>
+        <td><%= playerdetail.name%></td>
+        <td><%= playerdetail.email%></td>
+        <td><%= playerdetail.state%></td>
+        <td><%= playerdetail.country%></td>
+        <td><%= playerdetail.mobile_no%></td>
+        <td><%= playerdetail.sport.sport_name%></td>
+        <td><%= playerdetail.gender%></td>
+        <td><%= link_to 'Show', playerdetail %></td>
+        <td><%= link_to 'Edit', edit_playerdetail_path(playerdetail) %></td>
+        <td><%= link_to 'Destroy', playerdetail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br/>
+<%= link_to 'New Playerdetail', new_playerdetail_path, class:"btn btn-primary" %>

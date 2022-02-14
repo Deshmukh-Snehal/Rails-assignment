@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Announcements</h1>
+
+<table class="table table-striped">
+  <thead class="table-dark" id="annocementTable">
+    <tr>
+      <th>Title</th>
+      <th>Sport</th>
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Destroy</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @annocements.each do |annocement| %>
+      <tr>
+        <td><%= annocement.title %></td>
+        <td><%= annocement.sport.sport_name%></td>
+        <td><%= link_to 'Show', annocement %></td>
+        <% if ((annocement.user == current_user) || (current_user.admin?)) %>
+        <td><%= link_to 'Edit', edit_comment_path(annocement) %></td>
+        <td><%= link_to 'Destroy', annocement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br/>
+
+<%= link_to 'New Comment', new_annocement_path, class:"btn btn-primary" %>

@@ -1,0 +1,31 @@
+<%= form_with(model: annocement, local: true) do |form| %>
+  <% if annocement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(annocement.errors.count, "error") %> prohibited this annocement from being saved:</h2>
+
+      <ul>
+      <% annocement.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_area :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sport %>
+    <%= form.collection_select(:sport_id, Sport.all, :id, :sport_name, { :prompt => 'Select a Sport', :selected => @annocement.sport_id }, { class: 'form-control' }) %>
+  </div>
+  
+  <div class="field form-group">
+    <%= form.number_field :user_id,id: :annocement_user_id, class:"form-control", value: current_user.id,type: :hidden %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

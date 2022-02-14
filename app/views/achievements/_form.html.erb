@@ -10,28 +10,27 @@
       </ul>
     </div>
   <% end %>
-
+  
   <div class="field form-group">
     <%= form.label :awards %>
     <%= form.text_field :awards, class:"form-control" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :player %>
-    <%= form.collection_select(:player_id, Player.all, :id, :player_name, { :prompt => 'Select a Player', :selected => @achievement.player_id }, { class: 'form-control' }) %>
   </div>
 
   <div class="field form-group">
     <%= form.label :medals %>
     <%= form.text_field :medals, class:"form-control" %>
   </div>
-  <%if current_user && current_user.admin?%>
-    <div class="field">
-      <%= form.label :Staus %>
-      approve<%= form.radio_button :status, ['approve']%>
-      reject<%= form.radio_button :status, ['reject']%>
+  <% if current_user.admin? %>
+  <div class="field form-group">
+    <%= form.label :status %>
+    Approve<%= form.radio_button :status, ['Approved']%>
+    
+    Reject<%= form.radio_button :status, ['Rejected']%>
+    <% end %>
   </div>
-  <%end%>
+  <div class="field form-group">
+    <%= form.number_field :user_id,id: :achievement_user_id, class:"form-control", value: current_user.id,type: :hidden %>
+  </div>
   <br/>
   <div class="actions">
     <%= form.submit class:"btn btn-primary" %>
