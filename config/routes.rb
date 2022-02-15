@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :sports do
     resources :playerdetails
+    resources :posts
   end
   resources :annocements
   resources :comments do
