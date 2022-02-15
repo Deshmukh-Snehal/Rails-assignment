@@ -8,8 +8,10 @@
       <th>Sport name</th>
       <th>Sport equipments</th>
       <th>Show</th>
-      <th>Edit</th>
-      <th>Destroy</th>
+      <% if current_user && current_user.admin? %>
+        <th>Edit</th>
+        <th>Destroy</th>
+      <% end %>
     </tr>
   </thead>
   <tbody>

@@ -12,6 +12,6 @@ class User < ApplicationRecord
   has_many :posts
   after_initialize :set_default_role, :if => :new_record? 
   def set_default_role
-    self.role ||= :player   
+    self.role ||= :player 
   end
 end

@@ -40,14 +40,21 @@
     <%= form.label :sport %>
     <%= form.collection_select(:sport_id, Sport.all, :id, :sport_name, { :prompt => 'Select a Sport', :selected => @playerdetail.sport_id }, { class: 'form-control js-example-basic-single' }) %>
   </div>
-
+  <br/>
+  <% if current_user.admin? %>
   <div class="field form-group">
-    <%= form.label :Gender %>
-    male<%= form.radio_button :gender, ['male']%>
-    female<%= form.radio_button :gender, ['female']%>
+    <%= form.label :gender %>
+    Male<%= form.radio_button :gender, ['Male']%>
+    
+    Female<%= form.radio_button :gender, ['Female']%>
+    <% end %>
   </div>
 
+  <div class="field form-group">
+    <%= form.number_field :user_id,id: :playerdetail_user_id, class:"form-control", value: current_user.id,type: :hidden %>
+  </div>
+  <br/>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-primary"%>
   </div>
 <% end %>

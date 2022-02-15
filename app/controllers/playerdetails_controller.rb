@@ -1,4 +1,5 @@
 class PlayerdetailsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show ]
   before_action :set_playerdetail, only: %i[ show edit update destroy ]
 
   # GET /playerdetails or /playerdetails.json

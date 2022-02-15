@@ -15,17 +15,17 @@
     <%= form.label :title %>
     <%= form.text_area :title %>
   </div>
-
+  <br/>
   <div class="field">
     <%= form.label :sport %>
-    <%= form.collection_select(:sport_id, Sport.all, :id, :sport_name, { :prompt => 'Select a Sport', :selected => @annocement.sport_id }, { class: 'form-control' }) %>
+    <%= form.collection_select(:sport_id, Sport.all, :id, :sport_name, { :prompt => 'Select a Sport', :selected => @annocement.sport_id }, { class: 'form-control js-example-basic-single' }) %>
   </div>
   
   <div class="field form-group">
     <%= form.number_field :user_id,id: :annocement_user_id, class:"form-control", value: current_user.id,type: :hidden %>
   </div>
-
+  <br/>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-primary"%>
   </div>
 <% end %>

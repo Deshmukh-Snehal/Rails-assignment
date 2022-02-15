@@ -1,7 +1,19 @@
+//Sport Valiation
 $(function() {
-    var $form = $("#playerValidate");
-    if ($form.length) {
-        $form.validate({
+        $("#sportValidate").validate({
+            rules: {
+                "sport[sport_name]": {
+                    required: true
+                },
+                "sport[sport_equipments]": {
+                    required: true
+                }
+            }
+        })
+    })
+    //Player Valiation
+$(function() {
+        $("#playerValidate").validate({
             rules: {
                 "playerdetail[name]": {
                     required: true
@@ -9,9 +21,6 @@ $(function() {
                 "playerdetail[email]": {
                     required: true,
                     email: true
-                },
-                "playerdetail[state]": {
-                    required: true
                 },
                 "playerdetail[state]": {
                     required: true
@@ -25,45 +34,17 @@ $(function() {
                 }
             }
         })
-    }
+    })
+    //Achievement Validation
+$(function() {
+    $("#achievementValidate").validate({
+        rules: {
+            "achievement[awards]": {
+                required: true
+            },
+            "achievement[medals]": {
+                required: true
+            }
+        }
+    })
 })
-
-
-// jQuery.validator.setDefaults({
-//     debug: true,
-//     success: "valid"
-// });
-// $("#form1").validate({
-//     rules: {
-//         fname: {
-//             required: true,
-//             minlength: 4
-//         },
-//         lname: {
-//             required: true,
-//             minlength: 4
-//         },
-//         email: {
-//             required: true,
-//             email: true
-//         },
-//         age: {
-//             required: true,
-//             digits: true,
-//             range: [18, 100]
-//         },
-//         password: {
-//             required: true,
-//             minlength: 6,
-//             maxlength: 8
-//         },
-//         url: {
-//             required: true,
-//             url: true
-//         },
-//         mob_no: {
-//             required: true,
-//             digits: true
-//         }
-//     }
-// });

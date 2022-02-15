@@ -9,6 +9,6 @@
   <%= @annocement.sport.sport_name %>
 </p>
 <% if ((@annocement.user == current_user) || (current_user.admin?)) %>
-  <%= link_to 'Edit', edit_annocement_path(@annocement) %>
+  <%= link_to 'Edit', edit_annocement_path(@annocement), class:"btn btn-primary" %>
 <% end %>
-<%= link_to 'Back', annocements_path %>
+<%= link_to 'Back', annocements_path, class:"btn btn-dark" %>
