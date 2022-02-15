@@ -28,12 +28,12 @@
         <td><%= playerdetail.mobile_no%></td>
         <td><%= playerdetail.sport.sport_name%></td>
         <td><%= playerdetail.gender%></td>
-        <td><%= link_to 'Show', playerdetail %></td>
-        <td><%= link_to 'Edit', edit_playerdetail_path(playerdetail) %></td>
-        <td><%= link_to 'Destroy', playerdetail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show Sport', [@sport, playerdetail] %></td>
+        <td><%= link_to 'Edit Playerdetail', edit_sport_playerdetail_path(@sport, playerdetail) %></td>
+        <td><%= link_to 'Destroy Playerdetail', [@sport, playerdetail], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <br/>
-<%= link_to 'New Playerdetail', new_playerdetail_path, class:"btn btn-primary" %>
+<%= link_to 'New Playerdetail', new_sport_playerdetail_path(@sport), class:"btn btn-primary" %>

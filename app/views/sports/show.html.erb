@@ -9,7 +9,17 @@
   <strong>Sport equipments:</strong>
   <%= @sport.sport_equipments %>
 </p>
+
+<h2>Players</h2>
+<% for playerdetail in @sport.playerdetails %>
+    <ul>
+      <li><%= playerdetail.name %></li>
+  </ul>
+<% end %>
+
+
 <% if current_user && current_user.admin? %>
 <%= link_to 'Edit', edit_sport_path(@sport), class:"btn btn-primary" %>
+<%= link_to 'Add Player', sport_playerdetails_path(@sport), class:"btn btn-primary" %>
 <% end %>
 <%= link_to 'Back', sports_path, class:"btn btn-dark" %>

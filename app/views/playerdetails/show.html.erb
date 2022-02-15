@@ -36,5 +36,5 @@
   <%= @playerdetail.gender %>
 </p>
 
-<%= link_to 'Edit', edit_playerdetail_path(@playerdetail), class:"btn btn-primary" %>
-<%= link_to 'Back', playerdetails_path, class:"btn btn-dark" %>
+<%= link_to 'Edit', edit_sport_playerdetail_path(@sport, @playerdetail), class:"btn btn-primary" %>
+<%= link_to 'Back', sport_playerdetails_path(@sport), class:"btn btn-dark" %>

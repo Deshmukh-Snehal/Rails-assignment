@@ -4,6 +4,7 @@ class Playerdetail < ApplicationRecord
   belongs_to :user
   #Validations
   validates :name, :state, :country, :mobile_no, :gender, presence: true
+  validates :name, uniqueness: true
   validates :email, uniqueness: true
   validates :mobile_no, numericality: true
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i

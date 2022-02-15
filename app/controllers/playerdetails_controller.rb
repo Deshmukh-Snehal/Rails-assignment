@@ -1,10 +1,12 @@
 class PlayerdetailsController < ApplicationController
+  before_action :get_sport
   before_action :authenticate_user!, except: [:index, :show ]
   before_action :set_playerdetail, only: %i[ show edit update destroy ]
 
   # GET /playerdetails or /playerdetails.json
   def index
-    @playerdetails = Playerdetail.all
+    # @playerdetails = Playerdetail.all
+    @playerdetails = @sport.playerdetails
   end
 
   # GET /playerdetails/1 or /playerdetails/1.json
@@ -13,20 +15,23 @@ class PlayerdetailsController < ApplicationController
 
   # GET /playerdetails/new
   def new
-    @playerdetail = Playerdetail.new
+    #@playerdetail = Playerdetail.new
+    @playerdetail = @sport.playerdetails.build
   end
 
   # GET /playerdetails/1/edit
   def edit
   end
 
-  # POST /playerdetails or /playerdetails.json
+  # playerdetail /playerdetails or /playerdetails.json
   def create
-    @playerdetail = Playerdetail.new(playerdetail_params)
+    #@playerdetail = Playerdetail.new(playerdetail_params)
+    #resource routing
+    @playerdetail = @sport.playerdetails.build(playerdetail_params)
 
     respond_to do |format|
       if @playerdetail.save
-        format.html { redirect_to playerdetail_url(@playerdetail), notice: "Playerdetail was successfully created." }
+        format.html { redirect_to sport_playerdetails_path(@sport), notice: "Playerdetail was successfully created." }
         format.json { render :show, status: :created, location: @playerdetail }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +44,7 @@ class PlayerdetailsController < ApplicationController
   def update
     respond_to do |format|
       if @playerdetail.update(playerdetail_params)
-        format.html { redirect_to playerdetail_url(@playerdetail), notice: "Playerdetail was successfully updated." }
+        format.html { redirect_to sport_playerdetail_path(@sport), notice: "Playerdetail was successfully updated." }
         format.json { render :show, status: :ok, location: @playerdetail }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -51,17 +56,20 @@ class PlayerdetailsController < ApplicationController
   # DELETE /playerdetails/1 or /playerdetails/1.json
   def destroy
     @playerdetail.destroy
-
     respond_to do |format|
-      format.html { redirect_to playerdetails_url, notice: "Playerdetail was successfully destroyed." }
+      format.html { redirect_to sport_playerdetails_path(@sport), notice: "Playerdetail was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
+    # Resource routing method
+    def get_sport
+      @sport = Sport.find(params[:sport_id])
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_playerdetail
-      @playerdetail = Playerdetail.find(params[:id])
+      @playerdetail = @sport.playerdetails.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

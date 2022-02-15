@@ -1,4 +1,4 @@
-<%= form_with(model: playerdetail,:html => {id: "playerValidate"}, local: true) do |form| %>
+<%= form_with(model: [@sport, playerdetail],:html => {id: "playerValidate"}, local: true) do |form| %>
   <% if playerdetail.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(playerdetail.errors.count, "error") %> prohibited this playerdetail from being saved:</h2>
@@ -35,11 +35,7 @@
     <%= form.label :mobile_no %>
     <%= form.text_field :mobile_no, class:"form-control" %>
   </div>
-
-  <div class="field">
-    <%= form.label :sport %>
-    <%= form.collection_select(:sport_id, Sport.all, :id, :sport_name, { :prompt => 'Select a Sport', :selected => @playerdetail.sport_id }, { class: 'form-control js-example-basic-single' }) %>
-  </div>
+  
   <br/>
   <% if current_user.admin? %>
   <div class="field form-group">
