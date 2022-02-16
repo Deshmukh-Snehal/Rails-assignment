@@ -24,10 +24,17 @@
   </ul>
 <% end %>
 
+<h2>Annocements</h2>
+<% for annocement in @sport.annocements %>
+    <ul>
+      <li><%= annocement.title %></li>
+  </ul>
+<% end %>
 
 <% if current_user && current_user.admin? %>
 <%= link_to 'Edit', edit_sport_path(@sport), class:"btn btn-primary" %>
 <%= link_to 'Add Player', sport_playerdetails_path(@sport), class:"btn btn-primary" %>
-<%= link_to 'Add Post', sport_posts_path(@sport) %>
+<%= link_to 'Add Post', sport_posts_path(@sport), class:"btn btn-primary" %>
+<%= link_to 'Add Annocement', sport_annocements_path(@sport), class:"btn btn-primary" %>
 <% end %>
 <%= link_to 'Back', sports_path, class:"btn btn-dark" %>

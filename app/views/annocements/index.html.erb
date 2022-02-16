@@ -18,15 +18,13 @@
       <tr>
         <td><%= annocement.title %></td>
         <td><%= annocement.sport.sport_name%></td>
-        <td><%= link_to 'Show', annocement %></td>
-        <% if ((annocement.user == current_user) || (current_user.admin?)) %>
-        <td><%= link_to 'Edit', edit_comment_path(annocement) %></td>
-        <td><%= link_to 'Destroy', annocement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
+        <td><%= link_to 'Show Sport', [@sport, annocement] %></td>
+        <td><%= link_to 'Edit annocement', edit_sport_annocement_path(@sport, annocement) %></td>
+        <td><%= link_to 'Destroy Annocement', [@sport, annocement], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <br/>
 
-<%= link_to 'New Comment', new_annocement_path, class:"btn btn-primary" %>
+<%= link_to 'New Announcement', new_sport_annocement_path(@sport), class:"btn btn-primary" %>

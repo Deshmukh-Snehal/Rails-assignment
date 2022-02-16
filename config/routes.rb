@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   resources :sports do
     resources :playerdetails
-    resources :posts
+    resources :posts do
+      resources :comments
+    end  
+    resources :annocements
   end
-  resources :annocements
   resources :comments do
     resources :hashtags, module: :comments
   end
