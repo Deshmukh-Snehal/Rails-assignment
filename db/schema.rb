@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_14_133604) do
+ActiveRecord::Schema.define(version: 2022_02_16_043720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  # Achievement Table
+
   create_table "achievements", force: :cascade do |t|
     t.string "awards"
     t.string "medals"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2022_02_14_133604) do
     t.integer "user_id"
     t.index ["user_id"], name: "index_achievements_on_user_id"
   end
-  # Announcement Table
+
   create_table "annocements", force: :cascade do |t|
     t.text "title"
     t.datetime "created_at", null: false
@@ -35,15 +35,17 @@ ActiveRecord::Schema.define(version: 2022_02_14_133604) do
     t.index ["sport_id"], name: "index_annocements_on_sport_id"
     t.index ["user_id"], name: "index_annocements_on_user_id"
   end
-  # Comments Table
+
   create_table "comments", force: :cascade do |t|
     t.string "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "post_id"
+    t.integer "sport_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["sport_id"], name: "index_comments_on_sport_id"
   end
-  # friendly_id Table
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -54,7 +56,7 @@ ActiveRecord::Schema.define(version: 2022_02_14_133604) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
-  # Hashtag Table
+
   create_table "hashtags", force: :cascade do |t|
     t.string "tagable_type"
     t.bigint "tagable_id"
@@ -63,7 +65,7 @@ ActiveRecord::Schema.define(version: 2022_02_14_133604) do
     t.datetime "updated_at", null: false
     t.index ["tagable_type", "tagable_id"], name: "index_hashtags_on_tagable_type_and_tagable_id"
   end
-  # Player Table
+
   create_table "playerdetails", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -77,7 +79,7 @@ ActiveRecord::Schema.define(version: 2022_02_14_133604) do
     t.integer "user_id"
     t.index ["user_id"], name: "index_playerdetails_on_user_id"
   end
-  # Unused Table 
+
   create_table "players", force: :cascade do |t|
     t.string "gender"
     t.datetime "created_at", null: false
@@ -95,14 +97,14 @@ ActiveRecord::Schema.define(version: 2022_02_14_133604) do
     t.index ["sport_id"], name: "index_players_on_sport_id"
     t.index ["user_id"], name: "index_players_on_user_id"
   end
-  # Unused Table 
+
   create_table "post_attachments", force: :cascade do |t|
     t.integer "post_id"
     t.string "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-  # Post Table 
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -117,7 +119,7 @@ ActiveRecord::Schema.define(version: 2022_02_14_133604) do
     t.index ["sport_id"], name: "index_posts_on_sport_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
-  # Sport Table 
+
   create_table "sports", force: :cascade do |t|
     t.string "sport_name"
     t.string "sport_equipments"
@@ -129,7 +131,7 @@ ActiveRecord::Schema.define(version: 2022_02_14_133604) do
     t.index ["slug"], name: "index_sports_on_slug", unique: true
     t.index ["user_id"], name: "index_sports_on_user_id"
   end
-  # Unused Table 
+
   create_table "tag_infos", force: :cascade do |t|
     t.string "title"
     t.string "player"
@@ -141,7 +143,7 @@ ActiveRecord::Schema.define(version: 2022_02_14_133604) do
     t.index ["player_id"], name: "index_tag_infos_on_player_id"
     t.index ["post_id"], name: "index_tag_infos_on_post_id"
   end
-  # Unused Table 
+
   create_table "tagnames", force: :cascade do |t|
     t.string "tagable_type"
     t.bigint "tagable_id"
@@ -150,13 +152,13 @@ ActiveRecord::Schema.define(version: 2022_02_14_133604) do
     t.datetime "updated_at", null: false
     t.index ["tagable_type", "tagable_id"], name: "index_tagnames_on_tagable_type_and_tagable_id"
   end
-  # Unused Table 
+
   create_table "tags", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-  # User Table 
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false

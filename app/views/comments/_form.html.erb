@@ -1,4 +1,4 @@
-<%= form_with(model: comment, local: true) do |form| %>
+<%= form_with(model: [@sport, @post, comment], local: true) do |form| %>
   <% if comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
@@ -20,7 +20,7 @@
     <%= form.label :post %>
     <%= form.collection_select(:post_id, Post.all, :id, :title, { :prompt => 'Select a Post', :selected => @comment.post_id }, { class: 'form-control js-example-basic-single' }) %>
   </div>
-
+  
   <br/>
   <div class="actions">
     <%= form.submit class:"btn btn-primary"%>

@@ -18,13 +18,13 @@
       <tr>
         <td><%= comment.comment %></td>
         <td><%= comment.post.title%></td>
-        <td><%= link_to 'Show', comment %></td>
-        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show Post', [@sport, @post, comment] %></td>
+        <td><%= link_to 'Edit Comment', edit_sport_post_comment_path(@sport, @post, comment) %></td>
+        <td><%= link_to 'Destroy Comment', [@sport, @post, comment], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <br/>
 
-<%= link_to 'New Comment', new_comment_path, class:"btn btn-primary" %>
+<%= link_to 'New Comment', new_sport_post_comment_path(@sport, @post), class:"btn btn-primary" %>

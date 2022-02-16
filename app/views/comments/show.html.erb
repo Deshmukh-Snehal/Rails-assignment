@@ -5,9 +5,10 @@
   <%= @comment.comment %>
 </p>
 <p>
-  <strong>Comment:</strong>
+  <strong>Post:</strong>
   <%= @comment.post.title%>
 </p>
+
 <%= render partial: "hashtags/form", locals: {tagable: @comment} %>
-<%= link_to 'Edit', edit_comment_path(@comment), class:"btn btn-primary"  %>
-<%= link_to 'Back', comments_path, class:"btn btn-dark"  %>
+<%= link_to 'Edit', edit_sport_post_comment_path(@sport, @post, @comment), class:"btn btn-primary"  %>
+<%= link_to 'Back', sport_post_comments_path(@sport, @post), class:"btn btn-dark"  %>
