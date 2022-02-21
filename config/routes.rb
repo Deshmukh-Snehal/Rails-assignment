@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  resources :sports
+  devise_for :users
+  resources :sports do
   resources :posts
-  resources :achievements
-  resources :achievements
   resources :announcements
+  end
+  resources :achievements
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

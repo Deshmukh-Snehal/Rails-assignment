@@ -46,6 +46,6 @@ class AnnouncementsController < ApplicationController
   
       # Strong parameters
       def announcement_params
-         params.require(:announcement).permit(:title, :description)
+         params.require(:announcement).permit(:title, :description, :sport_id)
       end
 end
