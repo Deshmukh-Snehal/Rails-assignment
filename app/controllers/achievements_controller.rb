@@ -1,6 +1,6 @@
 class AchievementsController < ApplicationController
     before_action :set_achievement, only: [:update, :show, :destroy]
-
+    
     # GET /achievements
     def index
       @achievements = Achievement.all
@@ -46,6 +46,6 @@ class AchievementsController < ApplicationController
   
       # Strong parameters
       def achievement_params
-         params.require(:achievement).permit(:award, :medal)
+         params.require(:achievement).permit(:award, :medal, :user_id)
       end
 end

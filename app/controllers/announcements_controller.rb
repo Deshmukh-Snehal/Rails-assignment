@@ -3,18 +3,14 @@ class AnnouncementsController < ApplicationController
   before_action :set_announcement, only: [:update, :show, :destroy]
   
   # This action fetch all the announcements of sport
-  def index
-    
+  def index   
     announcements = @sport.announcements
-
     render_success 200, true, 'announcements fetched successfully', announcements.as_json
-    
   end
 
   # this action lets us create a new announcement
   def create
     announcement = @sport.announcements.new(announcement_params)
-
     if announcement.save
       render_success 200, true, 'announcement created successfully', announcement.as_json
     else
@@ -23,7 +19,6 @@ class AnnouncementsController < ApplicationController
       else
         errors = 'announcement creation failed'
       end
-
       return_error 500, false, errors, {}
     end
   end
@@ -66,7 +61,6 @@ class AnnouncementsController < ApplicationController
   def announcement_params
     params.require(:announcement).permit(:title,:description,:image,:sport_id,:user_id)
   end
-
 
   ## Set announcement Object, Return Error if not found
   def set_announcement

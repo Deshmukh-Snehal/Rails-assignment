@@ -7,5 +7,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   include DeviseTokenAuth::Concerns::User
+  #associations
+  belongs_to :sport
+  has_many :achievements
+  
+   #list of roles
   enum role: [:user, :admin]
 end
