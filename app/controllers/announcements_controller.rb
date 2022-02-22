@@ -5,14 +5,14 @@ class AnnouncementsController < ApplicationController
   # This action fetch all the announcements of sport
   def index   
     announcements = @sport.announcements
-    render_success 200, true, 'announcements fetched successfully', announcements.as_json
+    render_success 200, true, 'announcements fetched successfully', @announcements.as_json
   end
 
   # this action lets us create a new announcement
   def create
     announcement = @sport.announcements.new(announcement_params)
     if announcement.save
-      render_success 200, true, 'announcement created successfully', announcement.as_json
+      render_success 200, true, 'announcement created successfully', @announcement.as_json
     else
       if announcement.errors
         errors = announcement.errors.full_messages.join(", ")
@@ -33,7 +33,6 @@ class AnnouncementsController < ApplicationController
       else
         errors = 'announcement update failed'
       end
-
       return_error 500, false, errors, {}
     end
   end
@@ -46,18 +45,17 @@ class AnnouncementsController < ApplicationController
   # Delete an announcement API
   def destroy
     @announcement.destroy
-
     render_success 200, true, 'announcement deleted successfully', {}
   end
   private
   def set_sport
-    @sport = Sport.where(id: params[:sport_id]).first
-    
+    @sport = Sport.where(id: params[:sport_id]).first    
       unless @sport
-          return return_error 404, false, 'Product not found', {}
+          return return_error 404, false, 'Sport not found', {}
       end
   end
-  # Params of announcement
+
+  # Strong Params of announcement
   def announcement_params
     params.require(:announcement).permit(:title,:description,:image,:sport_id,:user_id)
   end
@@ -65,7 +63,6 @@ class AnnouncementsController < ApplicationController
   ## Set announcement Object, Return Error if not found
   def set_announcement
     @announcement = @sport.announcements.where(id: params[:id]).first
-
     unless @announcement
       return return_error 404, false, 'announcement not found', {}
     end
