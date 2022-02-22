@@ -1,4 +1,5 @@
 class AchievementsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_achievement, only: [:update, :show, :destroy]
 
   # GET /achievements
@@ -18,7 +19,7 @@ class AchievementsController < ApplicationController
   if @achievement.save
     render_success 200, true, 'achievement created successfully', @achievement.as_json
   else
-    if achievement.errors
+    if @achievement.errors
       errors = achievement.errors.full_messages.join(", ")
     else
       errors = 'achievement creation failed'

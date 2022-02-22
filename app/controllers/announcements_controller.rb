@@ -1,17 +1,18 @@
 class AnnouncementsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_sport
   before_action :set_announcement, only: [:update, :show, :destroy]
   
   # This action fetch all the announcements of sport
   def index   
-    announcements = @sport.announcements
+    @announcements = @sport.announcements
     render_success 200, true, 'announcements fetched successfully', @announcements.as_json
   end
 
   # this action lets us create a new announcement
   def create
-    announcement = @sport.announcements.new(announcement_params)
-    if announcement.save
+    @announcement = @sport.announcements.new(announcement_params)
+    if @announcement.save
       render_success 200, true, 'announcement created successfully', @announcement.as_json
     else
       if announcement.errors

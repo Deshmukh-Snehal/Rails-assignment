@@ -1,18 +1,11 @@
 class ApplicationController < ActionController::API
   include DeviseTokenAuth::Concerns::SetUserByToken
-  protected
-  def authenticate_user!(options = {})
-    head :unauthorized unless signed_in?
-  end
-  def authenticate_current_user
-    head :unauthorized if current_user_get.nil?
-  end  
- 
   ## Custom Authentication Error Message
   def render_authenticate_error
     return_error 401, false, 'You need to sign in or sign up before continuing.', {}
   end
-  
+
+  protected
   ## Return Success Response
   def render_success code, status, message, data = {}
     render json: {

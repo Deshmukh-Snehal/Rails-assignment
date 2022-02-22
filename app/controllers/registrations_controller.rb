@@ -2,9 +2,9 @@ class RegistrationsController < DeviseTokenAuth::RegistrationsController
   def create
     user = User.new(sign_up_params)
     if user.save 
-      render json: user.as_json, status: :ok, message:'User created successfully'
+      render_success 200, true, 'User created successfully', user.as_json
     else
-      render json: { errors: user.errors.full_messages }, status: :bad_request
+      render_success 401, false, 'User already created', user.as_json
     end
   end
   def show
