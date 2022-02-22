@@ -4,7 +4,7 @@ class AchievementsController < ApplicationController
 
   # GET /achievements
   def index
-    @achievements = Achievement.all
+    @achievements = Achievement.all(page).per(per_page)
     render_success 200, true, 'achievements fetched successfully', @achievements.as_json
   end
   
@@ -63,5 +63,14 @@ class AchievementsController < ApplicationController
   # Strong parameters
   def achievement_params
     params.require(:achievement).permit(:award, :medal, :user_id)
+  end
+
+  # Pagination
+  def page
+    @page ||= params[:page] || 1
+  end
+  
+  def per_pag
+    @per_page ||= params[:per_page] || 10
   end
 end
