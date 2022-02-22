@@ -1,4 +1,8 @@
 class Sport < ApplicationRecord
+  # Sport schema
+  # t.string "name"
+  # t.string "equipments"
+
   #Associaions
   has_many :users
   has_many :posts
