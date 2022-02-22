@@ -5,7 +5,7 @@ class AnnouncementsController < ApplicationController
   
   # This action fetch all the announcements of sport
   def index   
-    @announcements = @sport.announcements
+    @announcements = @sport.announcements(page).per(per_page)
     render_success 200, true, 'announcements fetched successfully', @announcements.as_json
   end
 
@@ -70,5 +70,14 @@ class AnnouncementsController < ApplicationController
     unless @announcement
       return return_error 404, false, 'announcement not found', {}
     end
+  end
+  
+  # Pagination
+  def page
+    @page ||= params[:page] || 1
+  end
+  
+  def per_pag
+    @per_page ||= params[:per_page] || 10
   end
 end
