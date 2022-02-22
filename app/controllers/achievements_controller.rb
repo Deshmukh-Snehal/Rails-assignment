@@ -16,7 +16,7 @@ class AchievementsController < ApplicationController
   # POST /achievements
   def create
   @achievement = Achievement.new(achievement_params)
-  if @achievement.save
+  if @achievement.save && current_user.admin?
     render_success 200, true, 'achievement created successfully', @achievement.as_json
   else
     if @achievement.errors
@@ -24,13 +24,13 @@ class AchievementsController < ApplicationController
     else
       errors = 'achievement creation failed'
     end
-      return_error 500, false, errors, {}
+    return_error 500, false, 'only admin can create achievements'
     end
   end
   
   # PATCH/PUT /achievements/1
   def update
-    if @achievement.update(achievement_params)
+    if @achievement.update(achievement_params) && current_user.admin?
       render_success 200, true, 'achievement updated successfully', @achievement.as_json
     else
       if @achievement.errors
@@ -38,14 +38,17 @@ class AchievementsController < ApplicationController
       else
         errors = 'achievement update failed'
       end
-        return_error 500, false, errors, {}
+      return_error 500, false, 'only admin can update achievements'
     end
   end
   
   # DELETE /achievements/1
   def destroy
-    @achievement.destroy
-    render_success 200, true, 'achievement deleted successfully', {}
+    if @achievement.destroy && current_user.admin?
+      render_success 200, true, 'achievement deleted successfully', {}
+    else
+      return_error 500, false, 'only admin can delete achievements'
+    end
   end
 
   private
