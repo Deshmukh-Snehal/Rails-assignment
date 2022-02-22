@@ -12,7 +12,8 @@ class ApplicationController < ActionController::API
     code: code,
     status: status,
     message: message,
-    data: data
+    data: data,
+    per_page: per_page
     }
   end
 
@@ -33,7 +34,7 @@ class ApplicationController < ActionController::API
     
   ## Pagination Per Page Records
   def per_page
-    @per_page ||= params[:per_page] || 20
+    @per_page ||= params[:per_page] || 10
   end
     
   ## Set Product & Return ERROR if not found

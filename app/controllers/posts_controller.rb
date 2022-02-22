@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
   # This action fetch all the posts of sport
   def index
-    @posts = @sport.posts
+    @posts = @sport.posts(page).per(per_page)
     render_success 200, true, 'Posts fetched successfully', @posts.as_json   
   end  
 
@@ -67,5 +67,12 @@ class PostsController < ApplicationController
     unless @post
       return return_error 404, false, 'Post not found', {}
     end
+  end
+  def page
+    @page ||= params[:page] || 1
+  end
+  
+  def per_pag
+    @per_page ||= params[:per_page] || 10
   end
 end
