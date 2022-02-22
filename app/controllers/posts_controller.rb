@@ -68,6 +68,7 @@ class PostsController < ApplicationController
       return return_error 404, false, 'Post not found', {}
     end
   end
+  # Pagination
   def page
     @page ||= params[:page] || 1
   end

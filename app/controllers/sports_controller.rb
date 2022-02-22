@@ -4,7 +4,7 @@ class SportsController < ApplicationController
 
   # GET /sports
   def index
-    @sports = Sport.all
+    @sports = Sport.all(page).per(per_page)
     render_success 200, true, 'Sports fetched successfully', @sports.as_json
   end
 
@@ -64,5 +64,14 @@ class SportsController < ApplicationController
     # Strong parameters
     def sport_params
        params.require(:sport).permit(:name, :equipments)
+    end
+    
+    # Pagination
+    def page
+      @page ||= params[:page] || 1
+    end
+    
+    def per_pag
+      @per_page ||= params[:per_page] || 10
     end
 end
