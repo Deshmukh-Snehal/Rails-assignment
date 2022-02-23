@@ -1,4 +1,5 @@
 class SessionsController < DeviseTokenAuth::SessionsController
+  # Create an Session API for sign_in
   def create
     params_hash = sign_up_params
     unless params_hash[:email].present?
@@ -26,12 +27,13 @@ class SessionsController < DeviseTokenAuth::SessionsController
   end
     
   protected
-  ## Manage Strong Params
+  # Manage Strong Params
   def sign_up_params
     parameters = params.permit(:facebook_id,:email)
     parameters
   end
-  ## Render Email not exists in params error
+
+  #  Render Email not exists in params error
   def render_email_missing
     return_error 400, false, 'Please enter email address', {}
   end

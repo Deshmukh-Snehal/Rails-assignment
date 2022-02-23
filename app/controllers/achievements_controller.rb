@@ -2,7 +2,7 @@ class AchievementsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_achievement, only: [:update, :show, :destroy]
 
-  # GET /achievements
+  # List All Announcements API
   def index
     @achievements = Achievement.all(page).per(per_page)
     render_success 200, true, 'achievements fetched successfully', @achievements.as_json
@@ -13,7 +13,7 @@ class AchievementsController < ApplicationController
     render_success 200, true, 'achievement fetched successfully', @achievement.as_json
   end
   
-  # POST /achievements
+  # Create an Announcements API
   def create
   @achievement = Achievement.new(achievement_params)
   if @achievement.save && current_user.admin?
@@ -28,7 +28,7 @@ class AchievementsController < ApplicationController
     end
   end
   
-  # PATCH/PUT /achievements/1
+  # Update an Announcements API
   def update
     if @achievement.update(achievement_params) && current_user.admin?
       render_success 200, true, 'achievement updated successfully', @achievement.as_json
@@ -42,7 +42,7 @@ class AchievementsController < ApplicationController
     end
   end
   
-  # DELETE /achievements/1
+  # Delete an Announcements API
   def destroy
     if @achievement.destroy && current_user.admin?
       render_success 200, true, 'achievement deleted successfully', {}
@@ -52,24 +52,30 @@ class AchievementsController < ApplicationController
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
+  # Set Announcements Object, Return Error if not found
   def set_achievement
     @achievement = Achievement.find(params[:id])
     unless @achievement
       return return_error 404, false, 'achievement not found', {}
     end
   end
+  
+  # Strong parameter for status
+  def status_params
+    params.require(:achievement).permit(:status)
+  end
 
-  # Strong parameters
+  # Strong parameters for all 
   def achievement_params
     params.require(:achievement).permit(:award, :medal, :user_id)
   end
 
-  # Pagination
+  # Kaminari Pagination method
   def page
     @page ||= params[:page] || 1
   end
-  
+
+  # Kaminari Pagination method for per page
   def per_pag
     @per_page ||= params[:per_page] || 10
   end

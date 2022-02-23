@@ -3,13 +3,13 @@ class AnnouncementsController < ApplicationController
   before_action :set_sport
   before_action :set_announcement, only: [:update, :show, :destroy]
   
-  # This action fetch all the announcements of sport
+  # List All Announcement API
   def index   
     @announcements = @sport.announcements(page).per(per_page)
     render_success 200, true, 'announcements fetched successfully', @announcements.as_json
   end
 
-  # this action lets us create a new announcement
+  # Create an Announcement API
   def create
     @announcement = @sport.announcements.new(announcement_params)
     if @announcement.save && current_user.admin?
@@ -64,7 +64,7 @@ class AnnouncementsController < ApplicationController
     params.require(:announcement).permit(:title,:description,:image,:sport_id,:user_id)
   end
 
-  ## Set announcement Object, Return Error if not found
+  # Set announcement Object, Return Error if not found
   def set_announcement
     @announcement = @sport.announcements.where(id: params[:id]).first
     unless @announcement
@@ -72,11 +72,12 @@ class AnnouncementsController < ApplicationController
     end
   end
   
-  # Pagination
+  # Kaminari Pagination method
   def page
     @page ||= params[:page] || 1
   end
   
+  # Kaminari Pagination method for per page
   def per_pag
     @per_page ||= params[:per_page] || 10
   end

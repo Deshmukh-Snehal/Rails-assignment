@@ -3,13 +3,13 @@ class PostsController < ApplicationController
   before_action :set_sport
   before_action :set_post, only: [:update, :show, :destroy]
 
-  # This action fetch all the posts of sport
+  # List All Posts API
   def index
     @posts = @sport.posts(page).per(per_page)
     render_success 200, true, 'Posts fetched successfully', @posts.as_json   
   end  
 
-  # this action lets us create a new post
+  # Create an Posts API
   def create
     @post = @sport.posts.new(post_params)
     if @post.save
@@ -24,7 +24,7 @@ class PostsController < ApplicationController
     end
   end
 
-  # Update post API
+  # Update Posts API
   def update
     if @post.update(post_params)
       render_success 200, true, 'Post updated successfully', @post.as_json
@@ -38,16 +38,17 @@ class PostsController < ApplicationController
     end
   end
 
-  # Fetch an post API
+  # Fetch an Posts API
   def show
     render_success 200, true, 'Post fetched successfully', @post.as_json
   end
 
-  # Delete an post API
+  # Delete an Posts API
   def destroy
     @post.destroy
     render_success 200, true, 'Post deleted successfully', {}
   end
+  
   private
   def set_sport
     @sport = Sport.where(id: params[:sport_id]).first
@@ -56,23 +57,25 @@ class PostsController < ApplicationController
     end
   end
 
-  # Strong parameters of Post
+  # Strong parameters of Posts
   def post_params
     params.require(:post).permit(:title,:description,:image, :sport_id, :user_id)
   end
 
-  # Set post Object, Return Error if not found
+  # Set posts Object, Return Error if not found
   def set_post
     @post = @sport.posts.where(id: params[:id]).first
     unless @post
       return return_error 404, false, 'Post not found', {}
     end
   end
-  # Pagination
+
+  # Kaminari Pagination method
   def page
     @page ||= params[:page] || 1
   end
-  
+
+  # Kaminari Pagination method for per page
   def per_pag
     @per_page ||= params[:per_page] || 10
   end

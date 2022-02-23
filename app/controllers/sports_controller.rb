@@ -2,18 +2,18 @@ class SportsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_sport, only: [:update, :show, :destroy]
 
-  # GET /sports
+  # List All Sport API
   def index
     @sports = Sport.all(page).per(per_page)
     render_success 200, true, 'Sports fetched successfully', @sports.as_json
   end
 
-  # GET /sports/1
+  # Fetch an Sport API
   def show
     render_success 200, true, 'Sport fetched successfully', @sport.as_json
   end
 
-  # sport /sports
+  # Create an Sport API
   def create
     @sport = Sport.new(sport_params)
 
@@ -29,7 +29,7 @@ class SportsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /sports/1
+  # Update an Sport API
   def update
     if @sport.update(sport_params) && current_user.admin?
       render_success 200, true, 'Sport updated successfully', @sport.as_json
@@ -43,7 +43,7 @@ class SportsController < ApplicationController
     end
   end
   
-  # DELETE /sports/1
+  # Delete an Sport API
   def destroy
     if @sport.destroy && current_user.admin?
       render_success 200, true, 'Sport deleted successfully', {}
@@ -53,25 +53,25 @@ class SportsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_sport
-      @sport = Sport.find(params[:id])
-      unless @sport
-        return return_error 404, false, 'Sport not found', {}
-      end
+  # Set Sport Object, Return Error if not found
+  def set_sport
+    @sport = Sport.find(params[:id])
+    unless @sport
+      return return_error 404, false, 'Sport not found', {}
     end
+  end
 
-    # Strong parameters
-    def sport_params
-       params.require(:sport).permit(:name, :equipments)
-    end
+  # Strong parameters of Sport
+  def sport_params
+    params.require(:sport).permit(:name, :equipments)
+  end
     
-    # Pagination
-    def page
-      @page ||= params[:page] || 1
-    end
-    
-    def per_pag
-      @per_page ||= params[:per_page] || 10
-    end
+  # Kaminari Pagination method
+  def page
+    @page ||= params[:page] || 1
+  end
+  # Kaminari Pagination method for per page
+  def per_pag
+    @per_page ||= params[:per_page] || 10
+  end
 end
