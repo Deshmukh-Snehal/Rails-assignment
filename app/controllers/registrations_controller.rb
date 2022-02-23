@@ -15,7 +15,7 @@ class RegistrationsController < DeviseTokenAuth::RegistrationsController
     rescue ActiveRecord::RecordNotFound
     render json: {}, status: :not_found
   end
-  
+   
   private
 
   # Strong Params of Registration

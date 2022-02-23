@@ -8,7 +8,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
   include DeviseTokenAuth::Concerns::User
   #associations
-  belongs_to :sport
   has_many :achievements
 
   #list of roles

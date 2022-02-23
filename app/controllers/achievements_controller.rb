@@ -2,18 +2,18 @@ class AchievementsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_achievement, only: [:update, :show, :destroy]
 
-  # List All Announcements API
+  # List All Announcement API
   def index
     @achievements = Achievement.all(page).per(per_page)
     render_success 200, true, 'achievements fetched successfully', @achievements.as_json
   end
   
-  # GET /achievements/1
+  # Fetch an Announcement API
   def show
     render_success 200, true, 'achievement fetched successfully', @achievement.as_json
   end
   
-  # Create an Announcements API
+  # Create an Announcement API
   def create
   @achievement = Achievement.new(achievement_params)
   if @achievement.save && current_user.admin?
@@ -28,9 +28,9 @@ class AchievementsController < ApplicationController
     end
   end
   
-  # Update an Announcements API
+  # Update an Announcement API
   def update
-    if @achievement.update(achievement_params) && current_user.admin?
+    if @achievement.update(status_params) && current_user.admin?
       render_success 200, true, 'achievement updated successfully', @achievement.as_json
     else
       if @achievement.errors
@@ -42,7 +42,7 @@ class AchievementsController < ApplicationController
     end
   end
   
-  # Delete an Announcements API
+  # Delete an Announcement API
   def destroy
     if @achievement.destroy && current_user.admin?
       render_success 200, true, 'achievement deleted successfully', {}
@@ -65,7 +65,7 @@ class AchievementsController < ApplicationController
     params.require(:achievement).permit(:status)
   end
 
-  # Strong parameters for all 
+  # Strong parameters for achievements
   def achievement_params
     params.require(:achievement).permit(:award, :medal, :user_id)
   end

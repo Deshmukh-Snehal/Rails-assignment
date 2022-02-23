@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::API
   include DeviseTokenAuth::Concerns::SetUserByToken
 
-  ## Custom Authentication Error Message
+  # Custom Authentication Error Message
   def render_authenticate_error
     return_error 401, false, 'You need to sign in or sign up before continuing.', {}
   end
@@ -10,7 +10,7 @@ class ApplicationController < ActionController::API
   before_action :validate_app_version
   
   protected
-  ## Return Success Response
+  # Return Success Response
   def render_success code, status, message, data = {}
     render json: {
     code: code,
@@ -21,7 +21,7 @@ class ApplicationController < ActionController::API
     }
   end
 
-  ## Return Error Response
+  # Return Error Response
   def return_error(code, status, message, data = {})
     render json: {
       code: code,
@@ -38,17 +38,17 @@ class ApplicationController < ActionController::API
     end
   end
   
-  ## Pagination Page Number
+  # Pagination Page Number
   def page
     @page ||= params[:page] || 1
   end
     
-  ## Pagination Per Page Records
+  # Pagination Per Page Records
   def per_page
     @per_page ||= params[:per_page] || 10
   end
     
-  ## Set Sport & Return ERROR if not found
+  # Set Sport & Return ERROR if not found
   def set_sport
     @sport = Sport.where(id: params[:sport_id]).first  
     unless @sport
