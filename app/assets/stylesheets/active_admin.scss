@@ -6,12 +6,20 @@
 //
 // For example, to change the sidebar width:
 // $sidebar-width: 242px;
-
 // Active Admin's got SASS!
 @import "active_admin/mixins";
 @import "active_admin/base";
-
+@import 'activeadmin/quill_editor/quill.snow';
+@import 'activeadmin/quill_editor_input';
 // Overriding any non-variable Sass must be done after the fact.
 // For example, to change the default status-tag color:
 //
 //   .status_tag { background: #6090DB; }
+.organization-services {
+    padding: 1em;
+    margin: 1em;
+    background-color: #e6e6e6;
+    box-shadow: 10px 10px 5px 0px rgba(10, 0, 0, 0.75);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(10, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(10, 0, 0, 0.75);
+}
