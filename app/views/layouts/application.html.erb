@@ -14,17 +14,17 @@
       <%= render 'shared/leftsidemenu'%>
 
       <div class="container-fluid page-body-wrapper">
-        <%# settings-panel partial %>
-        <%= render 'shared/settings-panel'%>
+          <%# header partial%>
+          <%= render 'shared/header'%>
 
-        <%# header partial%>
-        <%= render 'shared/header'%>
-
-        <%# Main body content%>
-        <%= yield %>
-
-        <%# footer partial%>
-        <%= render 'shared/footer'%>
+          <%# settings-panel partial %>
+          <%= render 'shared/settings-panel'%>
+        <div class="main-panel">
+          <%# Main body content%>
+          <%= yield %>
+          <%# settings-panel partial %>
+          <%= render 'shared/footer'%>
+        </div>  
       </div>
     </div>
   </body>
