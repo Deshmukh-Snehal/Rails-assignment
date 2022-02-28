@@ -8,8 +8,25 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+    <div class="container-scroller">
+      <%# leftsidemenu partial%>
+      <%= render 'shared/leftsidemenu'%>
+
+      <div class="container-fluid page-body-wrapper">
+        <%# settings-panel partial %>
+        <%= render 'shared/settings-panel'%>
+
+        <%# header partial%>
+        <%= render 'shared/header'%>
+
+        <%# Main body content%>
+        <%= yield %>
+
+        <%# footer partial%>
+        <%= render 'shared/footer'%>
+      </div>
+    </div>
   </body>
+
 </html>

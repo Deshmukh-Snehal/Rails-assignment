@@ -10,7 +10,20 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require plugins/Chart.min
+//= require plugins/bootstrap-datepicker.min
+//= require plugins/jquery.flot
+//= require plugins/jquery.flot.resize
+//= require plugins/jquery.flot.categories
+//= require plugins/jquery.flot.fillbetween
+//= require plugins/jquery.flot.stack
+//= require plugins/jquery.flot.pie
+//= require plugins/off-canvas
+//= require plugins/hoverable-collapse
+//= require plugins/misc
+//= require plugins/dashboard
 //= require_tree .

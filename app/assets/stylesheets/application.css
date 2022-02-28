@@ -10,6 +10,13 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require 'plugins/mdi/css/materialdesignicons.min'
+ *= require 'plugins/flag-icon-css/css/flag-icon.min'
+ *= require 'plugins/css/vendor.bundle.base'
+ *= require 'plugins/font-awesome/css/font-awesome.min'
+ *= require 'plugins/bootstrap-datepicker.min'
+ *= require 'plugins/bootstrap-datepicker.min'
+ *= require 'style'
  *= require_tree .
  *= require_self
  */
