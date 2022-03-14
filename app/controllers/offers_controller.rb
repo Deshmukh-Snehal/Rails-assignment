@@ -2,7 +2,6 @@ class OffersController < ApplicationController
   before_action :set_offer, only: %i[ show edit update destroy ]
 
   def index
-    @offers = @business.offers
   end
 
   def generate_offer_json
@@ -119,6 +118,6 @@ class OffersController < ApplicationController
   end
 
   def offer_params
-    params.require(:offer).permit(:title, :description, :businesses_id)
+    params.require(:offer).permit(:title, :description, :business_id)
   end
 end
