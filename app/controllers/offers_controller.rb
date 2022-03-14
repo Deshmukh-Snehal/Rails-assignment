@@ -108,7 +108,7 @@ class OffersController < ApplicationController
     end
 
     def sort_column
-      columns = %w(name start finish)
+      columns = %w(title description start_date end_date)
       columns[params[:order]['0'][:column].to_i - 1]
     end
 
