@@ -17,6 +17,7 @@
 //= require plugins/bootstrap-datepicker.min
 //= require datatables
 //= require business
+//= require offers
 //= require plugins/jquery.flot
 //= require plugins/jquery.flot.resize
 //= require plugins/jquery.flot.categories
