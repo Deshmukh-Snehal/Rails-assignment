@@ -13,9 +13,10 @@
 //= require jquery
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require plugins/Chart.min
 //= require plugins/bootstrap-datepicker.min
+//= require datatables
+//= require business
 //= require plugins/jquery.flot
 //= require plugins/jquery.flot.resize
 //= require plugins/jquery.flot.categories
@@ -26,4 +27,5 @@
 //= require plugins/hoverable-collapse
 //= require plugins/misc
 //= require plugins/dashboard
+//= require turbolinks
 //= require_tree .

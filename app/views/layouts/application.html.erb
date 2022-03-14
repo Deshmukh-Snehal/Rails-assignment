@@ -19,10 +19,13 @@
 
           <%# settings-panel partial %>
           <%= render 'shared/settings-panel'%>
+
         <div class="main-panel">
           <%# Main body content%>
+          
           <%= yield %>
-          <%# settings-panel partial %>
+          
+          <%# footer partial %>
           <%= render 'shared/footer'%>
         </div>  
       </div>

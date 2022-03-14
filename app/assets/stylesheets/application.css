@@ -16,7 +16,12 @@
  *= require 'plugins/font-awesome/css/font-awesome.min'
  *= require 'plugins/bootstrap-datepicker.min'
  *= require 'plugins/bootstrap-datepicker.min'
+ *= require 'business'
  *= require 'style'
  *= require_tree .
+ *= require datatables
  *= require_self
  */
+
+@import 'datatables';
+@import 'bootstrap';

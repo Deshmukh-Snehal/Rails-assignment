@@ -1,0 +1,1136 @@
+.edit-challenge-btn {
+    color: #ffffff !important;
+    text-transform: uppercase;
+}
+
+.Social_blocks {
+    /*background-color: #10163A;
+    color: #f5f5f5;*/
+    /* margin: 20px;*/
+}
+
+.accordion .fa {
+    margin-right: 0.5rem;
+}
+
+#number-tabs h3 {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+
+#number-tabs .card-title {
+    text-transform: uppercase;
+}
+
+.Social_blocks p {
+    color: #333;
+    margin-bottom: 7px;
+}
+
+.Social_blocks .btn-link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.Social_blocks .btn-link:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.Social_blocks_container {
+    border-radius: 3px;
+    margin-left: 30px;
+}
+
+.Social_blocks_body {
+    border: 1px solid #3b5998;
+}
+
+.Social_blocks_twitter {
+    border: 1px solid #00acee;
+}
+
+.Social_blocks_LinkedIn {
+    border: 1px solid #0072b1;
+}
+
+.Social_blocks_title {
+    background-color: #3b5998;
+    padding: 6px 10px;
+}
+
+.Social_blocks_twitter_title {
+    background-color: #00acee;
+    padding: 6px 10px;
+}
+
+.Social_blocks_LinkedIn_title {
+    background-color: #0072b1;
+    padding: 6px 10px;
+}
+
+.Social_blocks_LinkedIn .Social_blocks_content_box {
+    margin-left: 12px;
+    margin-top: 20px;
+}
+
+.Social_blocks_LinkedIn .user_name_box .Social_blocks_content_box p {
+    padding-left: 0px;
+}
+
+.Social_blocks_title h5,
+.Social_blocks_twitter_title h5 {
+    color: #fff;
+    font-size: 15px;
+    margin: 0px;
+}
+
+.Social_blocks_content {
+    padding: 15px;
+}
+
+.Social_blocks_content_box {
+    border: 1px solid #ccc;
+}
+
+.Social_blocks_content_box img {
+    min-width: 100%;
+    min-height: 200px;
+    width: 100%;
+    background-color: #ccc;
+}
+
+.editable_box {
+    padding: 8px 10px 8px 10px;
+}
+
+.Social_blocks_content h5,
+.Social_blocks_content p {
+    /*margin: 0px*/
+}
+
+.Social_blocks_content input[type=text] {
+    display: none;
+    border: none;
+    box-shadow: none;
+    width: 90%;
+}
+
+.Social_blocks_content input[type=text]:focus {
+    border: 1px solid #ccc;
+    padding-left: 7px;
+    box-shadow: none;
+    outline: none;
+}
+
+.Social_blocks_content .text_label {
+    float: left;
+    font-size: 1rem;
+    width: 90%;
+    padding-left: 0px;
+}
+
+.Social_blocks_content .text_label.edit_title {
+    float: left;
+    font-size: 1.14rem;
+    width: 90%;
+    padding-left: 0px;
+    font-weight: 500;
+}
+
+.Social_blocks_twitter .text_label,
+.Social_blocks_twitter input[type=text] {
+    margin-left: 12px;
+}
+
+.Social_blocks_twitter .text_label p {
+    padding-left: 0px;
+}
+
+.Social_blocks_content a {
+    color: #ccc;
+}
+
+.Social_blocks_content .edit {
+    float: right;
+}
+
+.Social_blocks_content .edit .fa-pencil {
+    color: #ccc;
+    font-size: 16px;
+}
+
+.clear {
+    clear: both;
+}
+
+.user_pic_box {
+    width: 100%;
+    height: auto;
+    display: inline-block;
+    margin-bottom: 3px;
+}
+
+.user_pic_box .user_pic {
+    float: left;
+    min-width: 40px;
+    min-height: 40px;
+    background-color: #ccc;
+}
+
+.user_pic_box .user_name_box {
+    float: left;
+    width: 90%;
+}
+
+.user_name_box p {
+    margin-bottom: 0px;
+    padding-left: 12px;
+}
+
+.user_name_box p span {
+    /*color: #7367F0;*/
+    color: #fff;
+    display: inline-block;
+}
+
+.Social_blocks_twitter_link {
+    color: #00acee !important;
+    display: inline-block;
+}
+
+.challenge-name {
+    color: #7367f0 !important;
+}
+
+.Social_blocks_content_box {
+    position: relative;
+}
+
+.Social_blocks_content_box .image-upload input[type=file] {
+    display: none !important;
+}
+
+.Social_blocks_content_box .fa-upload {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    margin-right: 0px;
+    font-size: 13px;
+    color: #ccc;
+    background: #333;
+    padding: 5px;
+}
+
+.Social_blocks_content_box .image-upload {
+    height: 0px;
+}
+
+.step_point_box {
+    margin: 20px 0px;
+}
+
+.Social_blocks .card-head .fa {
+    width: 14px;
+}
+
+
+/*.Social_blocks .card-head .fa-facebook {*/
+
+
+/*  color: #3b5998;*/
+
+
+/*}*/
+
+
+/*.Social_blocks .card-head .fa-twitter {*/
+
+
+/*  color: #00acee;*/
+
+
+/*}*/
+
+
+/*.Social_blocks .card-head .fa-linkedin {*/
+
+
+/*  color: #0072b1;*/
+
+
+/*}*/
+
+.new_challenge_box h3 {
+    text-transform: uppercase;
+}
+
+.new_challenge_section .card {
+    border: 1px solid rgba(233, 236, 238, 0.125) !important;
+    border-radius: 0.5rem !important;
+}
+
+.new_challenge_box .card_box {
+    width: 100%;
+}
+
+.new_challenge_box .card_box .left_box {
+    width: 60px;
+    float: left;
+}
+
+.new_challenge_box .card_box .left_box .fa {
+    font-size: 45px;
+}
+
+.new_challenge_box .card_box .right_box {
+    width: 88%;
+    float: right;
+}
+
+.new_challenge_box .card_box .right_box .fa_title {
+    float: left;
+}
+
+.new_challenge_box .card_box .right_box span {
+    float: right;
+    /*font-size: 1.1rem;*/
+}
+
+.new_challenge_box .card_box .right_box p {
+    /*font-size: 1.1rem;*/
+}
+
+.new_challenge_box .card_box .right_box .fa {
+    width: 14px;
+    margin-left: 10px;
+}
+
+.step-top-padding {
+    padding-top: 25px !important;
+}
+
+.mechanism-error {
+    text-align: center;
+}
+
+.social-heading-details {
+    margin-left: -45px;
+}
+
+.new_challenge_section .card.active {
+    border: 1px solid #7367F0 !important;
+}
+
+.tbl-user-segments {
+    background-color: #0f163a !important;
+}
+
+.remove-btn-align {
+    font-size: 22px;
+    padding-top: 15px !important;
+}
+
+.nav-pills-bottom {
+    margin-bottom: 2rem !important;
+}
+
+.pill-inner-padding {
+    padding: 8px 55px !important;
+    font-size: 17px !important;
+    font-weight: 800;
+}
+
+.pill-btn {
+    background-color: transparent !important;
+    border: 1px solid #BABFC7 !important;
+    border-radius: 0.25rem !important;
+    color: #BABFC7 !important;
+}
+
+.picker.picker--opened.picker--focused {
+    margin-top: -20px;
+}
+
+
+/*.data-thumb-view-header .table-responsive .top .search-icon-placement label:after {*/
+
+
+/*  left: 4.428rem !important;*/
+
+
+/*}*/
+
+.social-link-label {
+    text-transform: uppercase;
+}
+
+.challenge-type-container {
+    width: 50%;
+    cursor: pointer;
+    padding-left: 0.71rem;
+}
+
+.challenge-type-error {
+    text-align: center;
+}
+
+#challenge_challenge_type-error {
+    font-size: 18px !important;
+}
+
+.challenge-type-container.active {
+    background: rgba(115, 103, 240, 0.2) !important;
+    color: #7367F0 !important;
+    position: relative;
+    padding-top: 0.71rem;
+    padding-bottom: 0.71rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+}
+
+.social-error-container {
+    margin-left: 50px;
+}
+
+#challenge-image-preview {
+    width: 100%;
+}
+
+#challenge-icon-image-preview {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.tag_box .select2-selection--multiple {
+    border-color: #7367F0 !important;
+}
+
+
+/*Google Map CSS*/
+
+#map-container {
+    height: 400px;
+    width: 625px;
+    border-radius: 16px 16px;
+    border-color: #fff;
+    border-style: solid;
+    box-shadow: 2px 2px 10px #B1B1B1;
+    margin-top: 25px;
+    border-width: 7px;
+}
+
+#location-challenge-map {
+    height: 100%;
+}
+
+.filter-type-dd {
+    display: initial !important;
+    width: 10%;
+}
+
+.filter-type-container {
+    padding-top: 10px;
+}
+
+.filter-apply-checkbox {
+    padding-top: 10px;
+}
+
+.add-tag-chip-btn:before {
+    color: #f2f2f2 !important;
+}
+
+.remove-tag-btn {
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 10px;
+    margin-top: 7px;
+}
+
+@media screen and (max-width: 768px) {
+    .new_challenge_box .card_box .left_box .fa {
+        font-size: 40px;
+    }
+    .new_challenge_box .card_box .right_box {
+        width: 85%;
+    }
+    .social-heading-details {
+        margin-left: 0px;
+    }
+    #map-container {
+        height: 290px;
+        width: 295px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .social-heading-details {
+        margin-left: -25px;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .app-content .wizard>.content>.body {
+        padding: 0 0px;
+    }
+    .app-content .wizard>.actions {
+        padding: 20px 0px;
+    }
+    .Social_blocks .btn-link {
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 0px;
+    }
+    .Social_blocks_container {
+        margin-left: 0px;
+    }
+    .Social_blocks .card-body {
+        -webkit-box-flex: 1;
+        -webkit-flex: 1 1 auto;
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        padding: 1.5rem 0px;
+    }
+    .user_pic_box .user_name_box {
+        float: left;
+        width: 80%;
+    }
+    .Social_blocks_twitter .Social_blocks_content .edit {
+        margin-right: -20px;
+    }
+    .Social_blocks_LinkedIn .Social_blocks_content .edit {
+        float: right;
+        margin-right: -10px;
+    }
+    .Social_blocks_content {
+        padding: 8px;
+    }
+    .new_challenge_box .card_box .left_box .fa {
+        font-size: 30px;
+    }
+    .new_challenge_box .card_box {
+        padding: 12px;
+    }
+    .new_challenge_box .card_box .left_box {
+        width: 40px;
+    }
+    .new_challenge_box .card_box .right_box {
+        width: 82%;
+    }
+    .new_challenge_box .card_box .right_box span {
+        float: left;
+        /* font-size: 1.1rem; */
+    }
+    .social-heading-details {
+        margin-left: 0px;
+    }
+}
+
+
+/* ===================== Challenge Details Popup ===================== */
+
+.challenge_section .modal .modal-header .modal-title {
+    text-transform: uppercase !important;
+    color: #FFFFFF;
+}
+
+.challenge_section .modal-title span {
+    color: #ccc;
+}
+
+.challenge_img {
+    width: 100%;
+    height: 260px;
+    min_height: 260px;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 12px;
+    position: relative;
+}
+
+.challenge-description {
+    position: absolute;
+    bottom: 0px;
+    left: 25px;
+    font-weight: 900;
+    font-size: 18px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    max-width: 350px;
+}
+
+.challenge_section .fa-facebook,
+.challenge_section .fa-twitter {
+    width: 25px;
+    height: 25px;
+    background: #3b5998;
+    border-radius: 50%;
+    line-height: 25px;
+    text-align: center;
+    margin-left: 8px;
+}
+
+.challenge_section .modal-content {
+    max-height: calc(100vh - 3.5rem) !important;
+}
+
+.challenge_section .modal-body h4 {
+    margin-bottom: 12px;
+}
+
+.challenge_section .modal-body h6 {
+    margin-bottom: 3px;
+}
+
+.challenge_section .fa-facebook {
+    background: #3b5998;
+}
+
+.challenge_section .fa-twitter {
+    background: #00acee;
+}
+
+.challenge_section .chip .chip-body .chip-closeable {
+    margin-left: -2px;
+}
+
+.challenge_section .chip .chip-body .chip-closeable i {
+    margin-left: 1px;
+    margin-top: 0px !important;
+}
+
+.challenge_section .active_time {
+    margin: 15px 0px;
+}
+
+.challenge_section .tag_box {
+    margin: 15px 0px;
+}
+
+.gradient_btn_box {
+    margin: 20px 0px 0px;
+}
+
+.gradient_btn_box .form-group {
+    margin-bottom: 0.5rem;
+}
+
+.gradient_btn_box .btn {
+    padding: 0.5rem 1rem;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    min-height: 60px;
+}
+
+.gradient_btn_box p {
+    margin-bottom: 0px;
+    font-size: 1rem;
+    letter-spacing: normal;
+    font-weight: 400;
+}
+
+.challenge_section .reward_btn {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-align: left;
+}
+
+.gradient_btn_box h6 {
+    margin-top: 6px;
+    margin-bottom: 3px;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.3px;
+}
+
+.challenge_section .modal_tab {
+    padding: 1rem;
+    width: 100%;
+}
+
+.challenge_section .modal-body .nav.nav-tabs {
+    background-color: #7367F0;
+    margin-bottom: 0px;
+    overflow: hidden;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.challenge_section .modal-body .nav-item .nav-link.active,
+.challenge_section .modal-body .nav-item .nav-link:hover {
+    color: #fff !important;
+}
+
+.challenge_section .modal-body .nav-item .nav-link,
+.challenge_section .modal-body .nav-item .nav-link.active {
+    background-color: transparent !important;
+}
+
+.challenge_section .modal-body .nav.nav-tabs .nav-item .nav-link.active:after {
+    top: 0% !important;
+    background: #6c39ae !important;
+    height: 3px !important;
+}
+
+.challenge_section .modal-body .tab-content .tab-pane {
+    background-color: #8b81f7 !important;
+    padding: 12px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.challenge_section .modal-body .tab-content .tab-pane p {
+    color: #fff !important;
+}
+
+.challenge_section .add_tag {
+    background-color: #7367f0;
+    display: inline-grid;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+.challenge_section .add_tag_btngroup {
+    margin-top: 5px;
+}
+
+.challenge_section .add_tag_btngroup input {
+    line-height: 15px;
+}
+
+.challenge_section .add_tag_btngroup .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.fa_active {
+    background: none;
+    color: #28c76e;
+}
+
+.fa_ended {
+    background: none;
+    color: #EA5455;
+}
+
+.fa_draft {
+    background: none;
+    color: #ff9f44;
+}
+
+.fa_scheduled {
+    background: none;
+    color: #28c76e;
+}
+
+.fa_circle_lg {
+    font-size: 14px;
+}
+
+.fa_circle_sm {
+    font-size: 10px;
+}
+
+.challenge-date {
+    font-size: 14px;
+}
+
+@media only screen and (min-width: 992px) {
+    .modal-width {
+        max-width: 800px;
+    }
+}
+
+.icon_side_margin {
+    margin: 0 5px;
+    font-size: 12px
+}
+
+.data_table_status_icon {
+    position: absolute;
+    top: 47%;
+    font-size: 18px;
+}
+
+
+/* ----------------------------------------- Question Builder START ----------------------------------------- */
+
+.hide-options {
+    display: none;
+}
+
+.question_form_blocks hr {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.question_box {
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 30px 20px 7px;
+    margin-bottom: 40px;
+}
+
+.question_form_blocks {
+    /*width: 80%;*/
+    margin: 20px auto;
+}
+
+.dropdown-option-icon {
+    padding-top: 4px;
+}
+
+.question_del_icon {
+    font-size: 18px;
+}
+
+.question_delete_box {
+    float: right;
+}
+
+.question_delete_box .custom-switch {
+    float: left;
+    position: relative;
+}
+
+.question_delete_box .custom-switch-seperator:after {
+    content: "";
+    height: 30px;
+    background: #ccc;
+    width: 1px;
+    position: absolute;
+    top: -4px;
+    right: -12px;
+}
+
+.question_delete_box .custom-switch p {
+    float: left;
+    padding-right: 12px;
+}
+
+.que_delete {
+    position: absolute;
+    right: 0px;
+}
+
+.que_edit {
+    position: relative;
+    clear: both;
+    width: 100%;
+}
+
+.que_option_header {
+    position: relative;
+    clear: both;
+    width: 100%;
+}
+
+.que_option_header .opt_answer_width {
+    width: 80%;
+    float: left;
+    left: 37%;
+}
+
+.que_option_header .opt_canswer_width {
+    width: 20%;
+    float: left;
+}
+
+.que_edit .que_ip_width {
+    width: 75%;
+    float: left;
+}
+
+.que_edit .que_edit_icon {
+    float: left;
+    font-size: 25px;
+    margin-top: 5px;
+    margin-right: 12px;
+    font-style: initial;
+}
+
+.que_edit .que_edit_cross {
+    float: left;
+    font-size: 22px;
+    margin-top: 7px;
+    margin-right: 15px;
+}
+
+.que_edit .drag_option {
+    float: left;
+    font-size: 22px;
+    margin-top: 7px;
+    margin-right: 15px;
+}
+
+.question_box .date_icon {
+    border-top-right-radius: 5px !important;
+    border-bottom-right-radius: 5px !important;
+}
+
+.que_dropdown_edit .que_edit_icon {
+    font-size: 20px;
+}
+
+.que_scale_label {
+    position: relative;
+    clear: both;
+    width: 100%;
+    float: left;
+}
+
+.que_scale_label span {
+    width: 5%;
+    float: left;
+    font-size: 20px;
+}
+
+.que_scale_label input {
+    width: 95%;
+    float: left;
+}
+
+.que_scale_ip {
+    width: 50%;
+    position: relative;
+}
+
+.que_scale_ip .form-group {
+    width: 40%;
+    float: left;
+}
+
+.que_scale_ip .k {
+    width: 20%;
+    float: left;
+    text-align: center;
+    line-height: 36px;
+}
+
+.clear {
+    clear: both;
+}
+
+@media only screen and (max-width: 414px) {
+    .question_form_blocks {
+        width: 100%;
+        margin: 20px auto;
+    }
+    .que_scale_label input {
+        width: 92%;
+        float: left;
+    }
+    .que_scale_label span {
+        width: 8%;
+        float: left;
+        font-size: 20px;
+    }
+    .que_edit .que_ip_width {
+        width: 76%;
+        float: left;
+    }
+    .que_edit .que_edit_icon {
+        font-size: 20px;
+        margin-right: 10px;
+    }
+    .que_edit .que_edit_cross {
+        font-size: 20px;
+        margin-left: 10px;
+    }
+    .que_edit .drag_option {
+        font-size: 20px;
+        margin-left: 10px;
+    }
+    .que_mobile_mb {
+        margin-bottom: 1.5rem
+    }
+    .app-content .wizard>.content>.body {
+        padding: 0 0px;
+    }
+    .app-content .wizard>.actions {
+        position: relative;
+        display: block;
+        text-align: right;
+        padding: 20px 0px;
+        padding-top: 0;
+    }
+}
+
+.answer_fields {
+    float: left;
+    left: 7%;
+    padding-top: 5px;
+}
+
+.wysiwyg-container {
+    display: grid;
+}
+
+.question-wysiwyg-editor {
+    min-height: 200px;
+}
+
+.question-wysiwyg-editor {
+    display: none;
+}
+
+.table.data-list-view.dataTable tbody tr,
+table.data-thumb-view.dataTable tbody tr {
+    transition: none;
+}
+
+
+/* Image upload css start */
+
+.social_image_box .image-upload {
+    height: 0px;
+}
+
+.social_image_box .image-upload input[type=file] {
+    display: none !important;
+}
+
+.social_image_box .social_img_show {
+    min-width: 100%;
+    min-height: 130px;
+    width: 100%;
+    position: relative;
+    visibility: hidden;
+    /* background-color: #ccc;*/
+}
+
+.social_image_box .social_image {
+    position: absolute;
+    top: 33%;
+    left: 36%;
+    height: 38px;
+    width: 47px;
+}
+
+.social_image_box .img_circle_icon {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-size: 20px;
+}
+
+.social_image_box .form-control {
+    background-color: transparent !important;
+    border-radius: 0px !important;
+    position: relative;
+    top: -30px;
+    text-align: center;
+}
+
+.social_image_box .form-control:focus {
+    border-color: transparent !important;
+    outline: 0;
+    box-shadow: none !important;
+    border: 0px !important;
+}
+
+.image_cross_box {
+    display: none;
+    position: absolute;
+    top: 40%;
+    left: 70%;
+    z-index: 9999;
+}
+
+.image_cross_box .fa {
+    font-size: 15px;
+    margin-right: 5px;
+}
+
+.social_image_box:hover .image_cross_box {
+    display: block;
+}
+
+.que_edit .image-drag {
+    margin-top: -1px !important;
+}
+
+.que_edit .image-drag,
+.que_edit .drag_option,
+.move-question-container .drag_option {
+    cursor: move;
+    font-size: 22px;
+}
+
+.que_edit .que_edit_cross,
+.que_edit .image_cross_js {
+    cursor: pointer;
+}
+
+.border-dashed {
+    border: 1px dashed #00CFE8 !important;
+}
+
+.social_image_box .icon-plus-circle {
+    font-size: 50px;
+    font-weight: 100;
+}
+
+.social_image_box {
+    margin-bottom: 1.2rem;
+}
+
+.image-uploader-option-answer-container {
+    margin-bottom: 15px;
+    left: 27%;
+}
+
+.image-upload-container {
+    cursor: pointer;
+}
+
+.social_image_box {
+    padding-bottom: 35px !important;
+}
+
+.social_image_box .form-control {
+    background-color: transparent !important;
+    border-radius: 0px !important;
+    position: relative;
+    top: 0px;
+    text-align: center;
+}
+
+.social_img_show_bg {
+    height: 130px;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.user-targetted {
+    font-size: 10px;
+}
+
+.gradient_btn_box .btn-two {
+    font-size: 37px;
+}
+
+.gradient_btn_box .counter-btn {
+    min-height: 90px;
+}
+
+.gradient_btn_box .last-two-h6 {
+    margin-top: 15px;
+}
+
+.hide {
+    display: none;
+}
+
+
+/* Image upload css end */
+
+
+/* ----------------------------------------- Question Builder END ----------------------------------------- */
