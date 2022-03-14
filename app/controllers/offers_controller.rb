@@ -1,5 +1,5 @@
 class OffersController < ApplicationController
-  before_action :set_offer, only: [:show :edit :update :destroy]
+  before_action :set_offer, only: %i[ show edit update destroy ]
 
   def index
     @offers = @business.offers
@@ -114,11 +114,11 @@ class OffersController < ApplicationController
     end
 
   ## Set offer
-    def set_offer
-      @offer = @business.offers.find_by(:id => params[:id]) rescue nil
-    end
+  def set_offer
+    @offer = @business.offers.find_by(:id => params[:id]) rescue nil
+  end
 
-    def offer_params
-      params.require(:offer).permit(:title, :description, :businesses_id)
-    end
+  def offer_params
+    params.require(:offer).permit(:title, :description, :businesses_id)
+  end
 end

@@ -64,3 +64,5 @@ gem 'jquery-rails'
 gem 'pry', '~> 0.14.1'
 gem 'jquery-datatables'
 gem 'kaminari'
+## Annotate Models with Schema
+gem 'annotate'

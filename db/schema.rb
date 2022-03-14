@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_14_090127) do
+ActiveRecord::Schema.define(version: 2022_03_14_093805) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,11 +27,14 @@ ActiveRecord::Schema.define(version: 2022_03_14_090127) do
   create_table "offers", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.bigint "businesses_id"
+    t.string "tags"
+    t.bigint "business_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["businesses_id"], name: "index_offers_on_businesses_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.index ["business_id"], name: "index_offers_on_business_id"
   end
 
-  add_foreign_key "offers", "businesses", column: "businesses_id"
+  add_foreign_key "offers", "businesses"
 end
