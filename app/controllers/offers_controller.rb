@@ -1,14 +1,15 @@
 class OffersController < ApplicationController
   before_action :set_offer, only: %i[ show edit update destroy ]
-
   def index
   end
 
   def generate_offer_json
     filters_query = ''
     search_string = []
+    response = []
 
-    offers = @business.offers
+    offers =Offer.all
+    businesses =Business.all
     ## Check if Search Keyword is Present & Write it's Query
     if params.has_key?('search') && params[:search].has_key?('value') && params[:search][:value].present?
       search_columns.each do |term|
@@ -25,31 +26,31 @@ class OffersController < ApplicationController
     offers = offers.where(search_string.join(' OR '), search: "%#{params[:search][:value]}%").where(filters_query)
     offers = offers.order("#{sort_column} #{datatable_sort_direction}") unless sort_column.nil?
 
-    offers = offers.page(datatable_page).per(datatable_per_page)
+      offers = offers.page(datatable_page).per(datatable_per_page)
 
-    render json: {
-        offers: offers.as_json(type: 'list'),
-        draw: params['draw'].to_i,
-        recordsTotal: offers.count,
-        recordsFiltered: offers.total_count
-    }
+      render json: {
+          offers: offers.as_json,
+          draw: params['draw'].to_i,
+          recordsTotal: offers.count,
+          recordsFiltered: offers.total_count
+      }
   end
 
   def new
-    @offer = @business.offers.new
-    @offer_filter = @offer.offer_filters.build
+    @offer = Offer.new
   end
 
   def create
-    @offer = @business.offers.new(offer_params)
+    @offer = Offer.new(offer_params)
 
-    ## Manage offer Tags
-    tags_association
-
-    if @offer.save
-      redirect_to admin_business_offers_path, success: 'offer successfully created'
-    else
-      render :new, error: "Error creating offers"
+    respond_to do |format|
+      if @offer.save
+        format.html { redirect_to offers_path(@offer), notice: "offer was successfully created." }
+        format.json { render :show, status: :created, location: @offer }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @offer.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -59,65 +60,43 @@ class OffersController < ApplicationController
 
   def update
     respond_to do |format|
-      previous_segments = @offer.offer_filters.pluck(:id)
-      previous_rules = @offer.offer_rules.pluck(:id)
-      removed_segments = previous_segments - @available_segments
-      removed_rules = previous_rules - @available_rules
-
       if @offer.update(offer_params)
-        ## Remove Deleted User Segments & offer Rules from a offer
-        @offer.offer_filters.where(id: removed_segments).delete_all if removed_segments.present?
-        @offer.offer_rules.where(id: removed_rules).delete_all if removed_rules.present?
-
-        format.html { redirect_to admin_business_offers_path(@business), success: 'offer was successfully updated.' }
-        format.json { render :edit, status: :updated }
+        format.html { redirect_to offer_path(@offer), notice: "offer was successfully updated." }
+        format.json { render :show, status: :ok, location: @offer }
       else
-        format.html { render :edit }
-        format.json { render json: @business.errors, status: :unprocessable_entity }
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @offer.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def destroy
-    @offer = @business.offers.find_by(:id)
     @offer.destroy
-    redirect_to :back
-  end
 
-  def delete_offer_filter
-    # @offer = @business.offer.find_by(:id=>params[:offer_id])
-    @offer_filter = offerFilter.find_by(:id => params[:id])
     respond_to do |format|
-      if @offer_filter.destroy
-        format.html {}
-        format.json {}
-      else
-        flash[:error] = "Post failed to delete."
-        format.html {}
-        format.json {}
-      end
+      format.html { redirect_to offers_path, notice: "offer was successfully destroyed." }
+      format.json { head :no_content }
     end
-    # @offer_filter.destroy
-    # redirect_to edit_business_offer_path(@offer), success: 'Active Segment deleted.'
   end
 
   private
 
-    def search_columns
-      %w(title, description)
-    end
+  def search_columns
+    %w(title description)
+  end
 
-    def sort_column
-      columns = %w(title description start_date end_date)
-      columns[params[:order]['0'][:column].to_i - 1]
-    end
+  def sort_column
+    columns = %w(title description start_date end_date)
+    columns[params[:order]['0'][:column].to_i - 1]
+  end
 
-  ## Set offer
+  # Use callbacks to share common setup or constraints between actions.
   def set_offer
-    @offer = @business.offers.find_by(:id => params[:id]) rescue nil
+    @offer = Offer.find(params[:id])
   end
 
   def offer_params
-    params.require(:offer).permit(:title, :description, :business_id)
+    # offer[:business] = offer.businesses.to_json(:only => [:title, :description, :start_date, :end_date, :name,])
+    params.require(:offer).permit(:title, :description, :start_date, :end_date, :business_id)
   end
 end

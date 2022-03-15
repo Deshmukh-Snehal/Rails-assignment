@@ -42,7 +42,7 @@ class BusinessesController < ApplicationController
     businesses = businesses.page(datatable_page).per(datatable_per_page)
 
     render json: {
-        businesses: businesses.as_json(type: 'list'),
+        businesses: businesses.as_json,
         draw: params['draw'].to_i,
         recordsTotal: businesses.count,
         recordsFiltered: businesses.total_count,

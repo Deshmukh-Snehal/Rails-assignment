@@ -21,8 +21,13 @@
       <strong>End Date:</strong>
       <%= @offer.end_date.strftime("%Y-%m-%d at %I:%M %p") %>
     </p>
+    
+    <p>
+      <strong>Business:</strong>
+      <%= @offer.business.name %>
+    </p>
 
-      <%= link_to 'Edit', edit_offer_path, class:"btn btn-secondary" %> <br><br>
-      <%= link_to 'Back', offeres_path, class:"btn btn-secondary"%>
-   </div>
+    <%= link_to 'Edit', edit_offer_path, class:"btn btn-secondary" %> <br><br>
+    <%= link_to 'Back', offers_path, class:"btn btn-secondary"%>
+  </div>
 </div>

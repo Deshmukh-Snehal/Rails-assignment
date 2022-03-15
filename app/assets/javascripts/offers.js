@@ -11,8 +11,9 @@ $(document).on("turbolinks:load", function() {
         columns: [
             { title: "Title", data: "title" },
             { title: "Description", data: "description" },
-            { title: "Start Time", data: "start_date" },
-            { title: "End Time", data: "end_date" },
+            { title: "Business name", data: "business_name" },
+            { title: "Start Time", data: "startdate" },
+            { title: "End Time", data: "enddate" },
             {
                 data: null,
                 bSortable: false,
@@ -28,18 +29,13 @@ $(document).on("turbolinks:load", function() {
                 },
             },
             {
-                data: null,
-                bSortable: false,
-                mRender: function(data, type, full) {
-                    return (
-                        '<a class="btn btn-info btn-sm" href="/offers/' +
-                        data.id +
-                        "/delete" +
-                        '">' +
-                        "Destroy" +
-                        "</a>"
-                    );
-                },
+                "data": null,
+                "bSortable": false,
+                "mRender": function(data, type, full) {
+                    return "<a class='btn btn-info btn-sm' href = '/offers/" + data.id +
+                        "data-confirm='Are you sure?' data-method='delete' data-toggle='tooltip' data-placement='top' data-original-title='Destroy Offers'>" +
+                        'Delete' + '</a>';
+                }
             },
 
         ],

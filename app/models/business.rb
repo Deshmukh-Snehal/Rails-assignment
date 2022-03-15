@@ -38,4 +38,11 @@ class Business < ApplicationRecord
 
   #Associations
   has_many :offers
+
+  def as_json
+    response = super
+    response.merge!({startdate: self.start_date.strftime("%Y-%m-%d at %I:%M %p")})
+    response.merge!({enddate: self.end_date.strftime("%Y-%m-%d at %I:%M %p")})
+    response
+  end
 end
