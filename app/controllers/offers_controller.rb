@@ -1,6 +1,13 @@
 class OffersController < ApplicationController
-  before_action :set_offer, only: %i[ show edit update destroy ]
+  before_action :set_business
+  before_action :set_offer
+  
   def index
+    if params[:offer] and params[:offer][:business_id]
+      @offers = Offer.search(params[:offer][:business_id])
+    else
+      @offers = Offer.all
+    end
   end
 
   def generate_offer_json
@@ -20,19 +27,18 @@ class OffersController < ApplicationController
     ## Check for Filters
     if params["filters"].present?
       filters = JSON.parse(params["filters"].gsub("=>", ":").gsub(":nil,", ":null,"))
-      filters_query = offers.offer_side_bar_filter(filters)
+      offers = offers.where(business_id: filters['business_id']) if filters['business_id'].present?
     end
 
     offers = offers.where(search_string.join(' OR '), search: "%#{params[:search][:value]}%").where(filters_query)
     offers = offers.order("#{sort_column} #{datatable_sort_direction}") unless sort_column.nil?
-
-      offers = offers.page(datatable_page).per(datatable_per_page)
-
+    offers = offers.page(datatable_page).per(datatable_per_page)
+      
       render json: {
           offers: offers.as_json,
           draw: params['draw'].to_i,
           recordsTotal: offers.count,
-          recordsFiltered: offers.total_count
+          recordsFiltered: offers.total_count,
       }
   end
 
@@ -90,9 +96,13 @@ class OffersController < ApplicationController
     columns[params[:order]['0'][:column].to_i - 1]
   end
 
+  def set_business 
+    @business = Business.find_by(:name => params[:name])
+  end
+  
   # Use callbacks to share common setup or constraints between actions.
   def set_offer
-    @offer = Offer.find(params[:id])
+    @offer = Offer.find_by(:id => params[:id])
   end
 
   def offer_params

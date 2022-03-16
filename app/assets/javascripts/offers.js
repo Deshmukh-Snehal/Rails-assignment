@@ -1,5 +1,6 @@
+console.log("hello");
 $(document).on("turbolinks:load", function() {
-    $("#offer-list").DataTable({
+    $("#offer_list_table").DataTable({
         lengthMenu: [5, 10, 15, 25, 50],
         ajax: {
             url: "/generate_offer_json",
@@ -42,5 +43,38 @@ $(document).on("turbolinks:load", function() {
         order: [
             ["1", "desc"]
         ],
+    });
+
+    // Generates Challenge Filter Query String
+    function generateFilterParams() {
+        console.log("a");
+        var filters = {
+            business_id: [$("#businesses :selected").val()]
+        }
+
+        $("select[name=businesses]:selected").each(function() {
+            filters['business_id'].push($(this).data('val'));
+        });
+        return filters;
+    }
+
+    // Apply Offers Filters
+    function applyFilters(filters) {
+        console.log("hello", filters);
+        if (filters != '') {
+            $('#offer_list_table').DataTable().ajax.url(
+                    "/generate_offer_json" +
+                    "?filters=" + JSON.stringify(filters)
+                )
+                .load() //selected
+        } else {
+            $('#offer_list_table').DataTable().ajax.reload();
+        }
+    }
+
+    // Offer  status filters
+    $('.business_sidebar_filter').change(function() {
+        console.log("hiii");
+        applyFilters(generateFilterParams());
     });
 });

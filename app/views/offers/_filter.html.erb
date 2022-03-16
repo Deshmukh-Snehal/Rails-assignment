@@ -1,0 +1,8 @@
+<div class="mt-1">
+    <h5>Business</h5>
+    <%= select_tag :businesses,
+                   options_for_select(all_business_humanize),
+                   class: 'form-control-sm business_sidebar_filter offer_list_table' %>
+    <div name="businesses" style="padding-top: 5px;">
+    </div>
+</div>
