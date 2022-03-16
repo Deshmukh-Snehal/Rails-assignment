@@ -66,3 +66,4 @@ gem 'jquery-datatables'
 gem 'kaminari'
 ## Annotate Models with Schema
 gem 'annotate'
+gem "audited", "~> 5.0"
