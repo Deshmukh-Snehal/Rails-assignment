@@ -11,8 +11,8 @@ $(document).on("turbolinks:load", function() {
         columns: [
             { title: "Business Name", data: "name" },
             { title: "Business Address", data: "address" },
-            { title: "Start Time", data: "startdate" },
-            { title: "End Time", data: "enddate" },
+            // { title: "Start Time", data: "startdate" },
+            // { title: "End Time", data: "enddate" },
             {
                 data: null,
                 bSortable: false,

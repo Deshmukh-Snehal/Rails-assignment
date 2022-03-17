@@ -1,0 +1,29 @@
+<div class="w3-container">
+  <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Audit</button>
+
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container">
+        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+          <% business = Business.all %>
+          <table style="width:100%">
+            <tr>
+              <th>Business Name</th>
+              <th>Audit count</th>
+              <th>Audited action</th>
+              <th>Audited changes</th>
+            </tr>
+            <% business.each do |business| %>
+            <tr>
+              <td><%= business.name %></td>
+              <td><%= business.audits.count %></td>
+              <% audit = business.audits.last %>  
+              <td><%= audit.action %></td>
+              <td><%= audit.audited_changes %></td>
+            </tr>
+            <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

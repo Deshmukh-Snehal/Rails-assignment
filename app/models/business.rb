@@ -11,6 +11,8 @@
 #  updated_at :datetime         not null
 #
 class Business < ApplicationRecord
+  audited
+
   def self.to_csv(fields = column_names, options = {})
     CSV.generate(options) do |csv|
       csv << fields
@@ -34,7 +36,7 @@ class Business < ApplicationRecord
   end
 
   #Validations
-  validates :name, :address, :start_date, :end_date, presence: true
+  # validates :name, :address, :start_date, :end_date, presence: true
 
   #Associations
   has_many :offers

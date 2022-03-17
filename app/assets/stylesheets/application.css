@@ -17,6 +17,7 @@
  *= require 'plugins/bootstrap-datepicker.min'
  *= require 'plugins/bootstrap-datepicker.min'
  *= require 'business'
+ 
  *= require 'style'
  *= require_tree .
  *= require datatables
