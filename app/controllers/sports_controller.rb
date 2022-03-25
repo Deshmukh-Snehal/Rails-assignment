@@ -1,5 +1,5 @@
 class SportsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show ]
+  # before_action :authenticate_user!, except: [:index, :show ]
   before_action :set_sport, only: %i[ show edit update destroy ]
 
   # GET /sports or /sports.json

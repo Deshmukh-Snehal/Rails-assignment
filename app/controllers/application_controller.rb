@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  before_action :require_login
+ 
   # Pagination Page Number
   def page
     @page ||= params[:page] || 1
@@ -22,5 +24,17 @@ class ApplicationController < ActionController::Base
   ## Returns Datatable Sorting Direction
   def datatable_sort_direction
     params[:order]['0'][:dir] == 'desc' ? 'desc' : 'asc'
+  end
+
+  protected
+  def require_login
+    unless logged_in?
+      flash[:error] = "You must be logged in to access sport"
+      # redirect_to new_user_registration_path
+    end
+  end
+
+  def logged_in?
+    authenticate_user!
   end
 end
