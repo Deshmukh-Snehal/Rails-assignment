@@ -4,6 +4,7 @@ class SportsController < ApplicationController
 
   # GET /sports or /sports.json
   def index
+    # WelcomeMailPlayerJob.perform_later 1,2,3
     @sports = Sport.all
   end
 
@@ -57,11 +58,58 @@ class SportsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  # def get_dataset
+  #   render json: { sports: Sport.page(params[:page]).per(per_page) }  
+  # end
 
+  def get_processed_dataset
+    # binding.pry
+    sports = Sport.all
+    search_string = []
+    filter_query = ''
+
+    ## Check if Search Keyword is Present & Write it's Query
+    if params.has_key?('search') && params[:search].has_key?('value') && params[:search][:value].present?
+      search_columns.each do |term|
+        search_string << "#{term} ILIKE :search"
+      end
+      sports = sports.where(search_string.join(' OR '), search: "%#{params[:search][:value]}%")
+    end
+
+    if params["filters"].present?
+      filters = JSON.parse(params["filters"].gsub("=>", ":").gsub(":nil,", ":null,"))
+      
+    end
+
+    sports = sports.order("#{sort_column} #{datatable_sort_direction}") unless sort_column.nil?
+    sports = sports.page(datatable_page).per(datatable_per_page)
+
+    render json: {
+        sports: sports.as_json,
+        draw: params['draw'].to_i,
+        recordsTotal: sports.count,
+        recordsFiltered: sports.total_count,
+    }
+  end
+
+  def search_columns
+    %w(sport_name sport_equipments)
+  end
+
+  ## Datatable Column List on which sorting can be performed
+  def sort_column
+    columns = %w(sport_name sport_equipments created_at)
+    columns[params[:order]['0'][:column].to_i - 1]
+  end
+
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_sport
       @sport = Sport.find(params[:id])
+    rescue ActiveRecord::RecordNotFound =>error
+      redirect_to sports_path, notice: "Sorry record is not their"
     end
 
     # Only allow a list of trusted parameters through.

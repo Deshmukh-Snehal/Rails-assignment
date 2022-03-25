@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  require 'sidekiq/web'
+  mount Sidekiq::Web => "/sidekiq"
+  resources :sports
+  get 'get_processed_dataset', to: 'sports#get_processed_dataset'
   resources :sports do
     resources :playerdetails
     resources :posts do

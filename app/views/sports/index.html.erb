@@ -1,34 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Sports</h1>
 
-<table class="table table-striped" id="sportTable">
-  <thead class="table-dark">
-    <tr>
-      <th>Sport name</th>
-      <th>Sport equipments</th>
-      <th>Show</th>
-      <% if current_user && current_user.admin? %>
-        <th>Edit</th>
-        <th>Destroy</th>
-      <% end %>
-    </tr>
-  </thead>
-  <tbody>
-    <% @sports.each do |sport| %>
-      <tr>
-        <td><%= sport.sport_name %></td>
-        <td><%= sport.sport_equipments %></td>
-        <td><%= link_to 'Show', sport %></td>
-        <% if current_user && current_user.admin? %>
-          <td><%= link_to 'Edit', edit_sport_path(sport) %></td>
-          <td><%= link_to 'Destroy', sport, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>
-<% if current_user && current_user.admin? %>
-<%= link_to 'New Sport', new_sport_path,class:"btn btn-primary" %>
-<%end%>
+<div class="card">
+  <div class="card-header">
+    <h1>Sports</h1>
+    <table class="table table-striped" id="server-side-sports">
+    </table>
+    <br>
+    <% if current_user && current_user.admin? %>
+    <%= link_to 'New Sport', new_sport_path,class:"btn btn-primary" %>
+    <%end%>
+  </div>
+</div>

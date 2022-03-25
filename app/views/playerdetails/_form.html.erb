@@ -38,13 +38,12 @@
   
   <br/>
   <% if current_user.admin? %>
-  <div class="field form-group">
-    <%= form.label :gender %>
-    Male<%= form.radio_button :gender, ['Male']%>
-    
-    Female<%= form.radio_button :gender, ['Female']%>
-    <% end %>
-  </div>
+    <div class="field form-group">
+      <%= form.label :gender %>
+      Male<%= form.radio_button :gender, ['Male']%>
+      Female<%= form.radio_button :gender, ['Female']%>
+    </div>
+  <% end %>
 
   <div class="field form-group">
     <%= form.number_field :user_id,id: :playerdetail_user_id, class:"form-control", value: current_user.id,type: :hidden %>

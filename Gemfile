@@ -68,3 +68,9 @@ gem 'jquery-validation-rails'
 gem "jquery-datatables", "~> 1.10"
 gem 'jquery-turbolinks'
 gem "select2-rails"
+gem 'kaminari'
+gem 'pry', '~> 0.13.1'
+gem 'sidekiq', '~> 4.1', '>= 4.1.2'
+gem 'sinatra'
+gem 'acts-as-taggable-on'
+gem 'whenever', require: false

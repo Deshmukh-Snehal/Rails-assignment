@@ -11,13 +11,12 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require jquery3
-//= require jquery_ujs
+//= require jquery
+//= require jquery.turbolinks
 //= require jquery.validate
 //= require select2-full
 //= require bootstrap
 //= require datatables
-//= require jquery.turbolinks
 //= require assigndatatable
 //= require frontvalidation
 //= require activestorage

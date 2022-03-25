@@ -2,6 +2,7 @@ class Playerdetail < ApplicationRecord
   #Association
   belongs_to :sport
   belongs_to :user
+  acts_as_taggable_on :tags
   #Validations
   validates :name, :state, :country, :mobile_no, :gender, presence: true
   validates :name, uniqueness: true

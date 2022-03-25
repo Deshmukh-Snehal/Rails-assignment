@@ -14,7 +14,7 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post =@sport.posts.build
+    @post = @sport.posts.build
     # @post = current_user.posts.build
   end
 
@@ -24,6 +24,7 @@ class PostsController < ApplicationController
 
   # POST /posts or /posts.json
   def create
+    Post.transaction do
     @post = @sport.posts.build(post_params)
     # @post = current_user.posts.build(post_params)
 
@@ -35,6 +36,11 @@ class PostsController < ApplicationController
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
+      if post_nil?
+        raise ActiveRecord::Rollback
+      end
+      end
+      redirect_to sport_posts_path, notice: "Please enter valid data"
     end
   end
 
@@ -65,6 +71,7 @@ class PostsController < ApplicationController
   #   @post = current_user.posts.find_by(id: params[:id])
   #   redirect_to posts_path, notice: "Unauthorized to edit this posts" if @post.nil?
   # end
+
 
   private
     def get_sport

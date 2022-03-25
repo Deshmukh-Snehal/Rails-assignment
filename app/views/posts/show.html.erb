@@ -26,7 +26,7 @@
       <li><%= comment.comment %></li>
   </ul>
 <% end %>
-<%= render partial: "hashtags/form", locals: {tagable: @post} %>
+<%# <%= render partial: "hashtags/form", locals: {tagable: @post} %>
 <% if ((@post.user == current_user) || (current_user.admin?)) %>
   <%= link_to 'Edit', edit_sport_post_path(@sport, @post), class:"btn btn-primary" %>
   <%= link_to 'Add Comment', sport_post_comments_path(@sport, @post), class:"btn btn-primary" %>
