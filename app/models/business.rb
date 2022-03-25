@@ -12,7 +12,6 @@
 #
 class Business < ApplicationRecord
   audited
-
   def self.to_csv(fields = column_names, options = {})
     CSV.generate(options) do |csv|
       csv << fields
@@ -35,16 +34,23 @@ class Business < ApplicationRecord
     end
   end
 
+  before_validation :normalize_name, on: :create
   #Validations
-  # validates :name, :address, :start_date, :end_date, presence: true
-
+  validates :name, presence: true
+  
   #Associations
   has_many :offers
 
-  def as_json
-    response = super
-    response.merge!({startdate: self.start_date.strftime("%Y-%m-%d at %I:%M %p")})
-    response.merge!({enddate: self.end_date.strftime("%Y-%m-%d at %I:%M %p")})
-    response
-  end
+    def as_json
+      response = super
+      response.merge!({startdate: self.start_date.strftime("%Y-%m-%d at %I:%M %p")})
+      response.merge!({enddate: self.end_date.strftime("%Y-%m-%d at %I:%M %p")})
+      response
+    end
+
+    private
+    # Callback 
+  def normalize_name
+    self.name = name.downcase.titleize
+  end 
 end

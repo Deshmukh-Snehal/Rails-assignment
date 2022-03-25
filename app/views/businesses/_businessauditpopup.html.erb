@@ -1,25 +1,31 @@
 <div class="w3-container">
-  <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Audit</button>
+  <button onclick="document.getElementById('business').style.display='block'" class="w3-button w3-black">Audit</button>
 
-  <div id="id01" class="w3-modal">
+  <div id="business" class="w3-modal">
     <div class="w3-modal-content">
       <div class="w3-container">
-        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+        <span onclick="document.getElementById('business').style.display='none'" class="w3-button w3-display-topright">&times;</span>
           <% business = Business.all %>
           <table style="width:100%">
             <tr>
-              <th>Business Name</th>
-              <th>Audit count</th>
-              <th>Audited action</th>
-              <th>Audited changes</th>
+              <th>Audit changes</th>
+              <th>Updated name</th>
+              <th>Previous name</th>
+              <th>Updated Address</th>
+              <th>Previous Address</th>
+              <th>Created at</th>
+              <th>Updated at</th>
             </tr>
             <% business.each do |business| %>
             <tr>
-              <td><%= business.name %></td>
-              <td><%= business.audits.count %></td>
               <% audit = business.audits.last %>  
               <td><%= audit.action %></td>
-              <td><%= audit.audited_changes %></td>
+              <td><%= business.revisions.pluck(:name).first %></td>
+              <td><%= business.revisions.pluck(:name).last %></td>
+              <td><%= business.revisions.pluck(:address).first %></td>
+              <td><%= business.revisions.pluck(:address).last %></td>
+              <td><%= business.created_at %></td>
+              <td><%= business.updated_at %></td>
             </tr>
             <% end %>
         </table>

@@ -1,0 +1,29 @@
+<div class="w3-container">
+  <button onclick="document.getElementById('offerpop').style.display='block'" class="w3-button w3-black">Audit</button>
+
+  <div id="offerpop" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container">
+        <span onclick="document.getElementById('offerpop').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+          <% offer = Offer.all %>
+          <table style="width:100%">
+            <tr>
+              <th>Offer Title</th>
+              <th>Audit count</th>
+              <th>Audited action</th>
+              <th>Audited changes</th>
+            </tr>
+            <% offer.each do |offer| %>
+            <tr>
+              <td><%= offer.title %></td>
+              <td><%= offer.audits.count %></td>
+              <% audit = offer.audits.last %>  
+              <td><%= audit.action %></td>
+              <td><%= audit.revision %></td>
+            </tr>
+            <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

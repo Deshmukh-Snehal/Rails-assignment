@@ -6,7 +6,7 @@ class OffersController < ApplicationController
     if params[:offer] and params[:offer][:business_id]
       @offers = Offer.search(params[:offer][:business_id])
     else
-      @offers = Offer.all
+      @offers = Offer.is_active
     end
   end
 
