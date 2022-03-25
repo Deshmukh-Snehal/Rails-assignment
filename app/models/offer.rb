@@ -27,7 +27,7 @@ class Offer < ApplicationRecord
 
   #Scope
   scope :is_active, -> {where(:start_date=> Time.now.beginning_of_month..Time.now.end_of_month)}
-  scope :is_, -> {where(:start_date=> Time.now.beginning_of_month..Time.now.end_of_month)}
+  
   private
     def normalize_title
       self.title = title.downcase.titleize
