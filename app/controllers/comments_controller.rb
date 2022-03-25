@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :get_sport
   before_action :get_post
   before_action :set_comment, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, except: [:index, :show ]
+  # before_action :authenticate_user!, except: [:index, :show ]
   # GET /comments or /comments.json
   def index
     @comments = @post.comments
